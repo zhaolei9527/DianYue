@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgfff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y38"
+            android:background="@color/bgtitle"
+            android:gravity="center"
+            android:paddingTop="@dimen/x8"
+            android:text="资讯中心"
+            android:textColor="@color/bgfff" />
+
+        <com.dianyue.View.PagerSlidingTabStrip
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y34"
+            android:layout_marginLeft="@dimen/x10"
+            android:background="@color/white"
+            app:pstsIndicatorColor="@color/bgtitle"
+            app:pstsTabTextColor="@drawable/pagerslidingtabtextcolor" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#DDDDDD"></View>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/VpNews_context"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgfff"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x42"
+        android:background="@color/bgtitle"
+        android:visibility="visible">
+
+        <FrameLayout
+            android:id="@+id/rl_back"
+            android:layout_width="@dimen/x30"
+            android:layout_height="@dimen/x30"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x10">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@mipmap/fanhui" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="支付宝帐号"
+            android:textColor="@color/bgfff"
+            android:textSize="@dimen/x16" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="@dimen/x290"
+            android:layout_height="@dimen/y33"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/x12"
+            android:background="@color/bgfff"
+            android:paddingLeft="@dimen/x10">
+
+            <EditText
+                android:id="@+id/et_zhifubao_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y33"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x22"
+                android:background="@null"
+                android:hint="请输入支付宝姓名"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textColorHint="#999" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="#efefef"></View>
+
+        <RelativeLayout
+            android:layout_width="@dimen/x290"
+            android:layout_height="@dimen/y33"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/x12"
+            android:background="@color/bgfff"
+            android:paddingLeft="@dimen/x10">
+
+            <EditText
+                android:id="@+id/et_zhifubao_num"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y33"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x22"
+                android:background="@null"
+                android:hint="请输入支付宝帐号"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textColorHint="#999" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="#efefef">
+
+        </View>
+
+        <RelativeLayout
+            android:layout_width="@dimen/x290"
+            android:layout_height="@dimen/y33"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/x10"
+            android:paddingLeft="@dimen/x10">
+
+            <EditText
+                android:id="@+id/et_code"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y33"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x22"
+                android:background="@null"
+                android:hint="请输入验证码"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textColorHint="#999" />
+
+            <Button
+                android:id="@+id/btn_getSMScode"
+                android:layout_width="@dimen/x80"
+                android:layout_height="@dimen/y26"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/x10"
+                android:background="@drawable/bg_login"
+                android:text="获取验证码"
+                android:textColor="@color/bgfff" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="@dimen/x250"
+        android:layout_height="@dimen/y30"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/x76"
+        android:background="@drawable/bg_login"
+        android:text="确定"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/x15" />
+
+</LinearLayout>

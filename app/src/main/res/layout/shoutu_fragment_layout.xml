@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/login_top_pic" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y80"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="今日收徒"
+                    android:textColor="@color/text666"
+                    android:textSize="@dimen/x15" />
+
+                <TextView
+                    android:id="@+id/tv_day_shoutu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="0人"
+                    android:textColor="@color/text000"
+                    android:textSize="@dimen/x15" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y80"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="累计收徒"
+                    android:textColor="@color/text666"
+                    android:textSize="@dimen/x15" />
+
+                <TextView
+                    android:id="@+id/tv_leiji_shoutu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="0人"
+                    android:textColor="@color/text000"
+                    android:textSize="@dimen/x15" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y80"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="今日收入"
+                    android:textColor="@color/text666"
+                    android:textSize="@dimen/x15" />
+
+                <TextView
+                    android:id="@+id/tv_day_shouru"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="0人"
+                    android:textColor="@color/text000"
+                    android:textSize="@dimen/x15" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y80"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="累计收入"
+                    android:textColor="@color/text666"
+                    android:textSize="@dimen/x15" />
+
+                <TextView
+                    android:id="@+id/tv_leiji_shouru"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="0人"
+                    android:textColor="@color/text000"
+                    android:textSize="@dimen/x15" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_shoutu"
+            android:layout_width="@dimen/x160"
+            android:layout_height="@dimen/y30"
+            android:layout_gravity="center"
+            android:background="#f00"
+            android:gravity="center"
+            android:text="马上收徒赚钱"
+            android:textColor="@color/bgfff"
+            android:textSize="@dimen/x15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/x15"
+            android:text="邀请规则"
+            android:textColor="@color/text999"
+            android:textSize="@dimen/x12" />
+
+        <TextView
+            android:id="@+id/tv_guize"
+            android:layout_width="@dimen/x180"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/x5"
+            android:text="好友下载完成app后需绑定师傅，升级会员，师傅才能获取一定比例的返利。"
+            android:textColor="@color/text999"
+            android:textSize="@dimen/x10" />
+
+    </LinearLayout>
+
+</FrameLayout>
