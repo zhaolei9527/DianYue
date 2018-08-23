@@ -2,20 +2,27 @@ package com.dianyue.Fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.dianyue.Activity.NewsListActivity;
 import com.dianyue.Adapter.NewsPageAdapter;
 import com.dianyue.App;
 import com.dianyue.Bean.NewsListBean;
 import com.dianyue.R;
+import com.dianyue.Utils.EasyToast;
 import com.dianyue.Utils.SpUtil;
 import com.dianyue.Utils.UrlUtils;
 import com.dianyue.View.PagerSlidingTabStrip;
@@ -79,6 +86,23 @@ public class MyNewsFragment extends BaseLazyFragment {
     protected View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         context = getActivity();
         View view = inflater.inflate(R.layout.news_fragment_layout, container, false);
+        final EditText et_search = view.findViewById(R.id.et_search);
+        et_search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId,
+                                          KeyEvent event) {
+                if ((actionId == 0 || actionId == 3) && event != null) {
+                    //点击搜索要做的操作
+                    String trim = et_search.getText().toString().trim();
+                    if (TextUtils.isEmpty(trim)) {
+                        EasyToast.showShort(mContext, "请输入关键字");
+                        return false;
+                    }
+                    mContext.startActivity(new Intent(mContext, NewsListActivity.class).putExtra("key", trim));
+                }
+                return false;
+            }
+        });
         return view;
     }
 

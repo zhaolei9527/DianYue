@@ -1,23 +1,19 @@
-package com.dianyue.Fragment;
+package com.dianyue.Activity;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.dianyue.Adapter.NewsListAdapter;
-import com.dianyue.Bean.NewsListBean;
+import com.dianyue.Adapter.NewsSearchListAdapter;
+import com.dianyue.Bean.NewsSearchBean;
 import com.dianyue.R;
 import com.dianyue.Utils.SpUtil;
 import com.dianyue.Utils.UrlUtils;
@@ -37,16 +33,14 @@ import me.fangx.haorefresh.LoadMoreListener;
  * Created by 赵磊 on 2017/9/19.
  */
 
-public class NewsListFragment extends BaseLazyFragment {
+public class NewsListActivity extends BaseActivity {
     private SwipeRefreshLayout refresh;
     private WenguoyiRecycleView mRecyclerView;
     private int p = 1;
     private SakuraLinearLayoutManager line;
-    private NewsListAdapter adapter;
-    private int height;
-    private Context context;
-    private View news_content_fragment_layout;
+    private NewsSearchListAdapter adapter;
     private RelativeLayout LL_empty;
+    private FrameLayout rl_back;
 
     /**
      * 新闻列表获取
@@ -54,19 +48,18 @@ public class NewsListFragment extends BaseLazyFragment {
     private void getNewsList() {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("page", String.valueOf(p));
-        params.put("cid", String.valueOf(news_content_fragment_layout.getTag()));
+        params.put("keyword", getIntent().getStringExtra("key"));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("NewsListFragment", "params:" + params);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "news/index", "news/index" + getTag(), params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "news/search", "news/search", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;
                 try {
                     Log.e("NewsListFragment", decode.toString());
-                    NewsListBean newsListBean = new Gson().fromJson(decode, NewsListBean.class);
-                    if ("211".equals(String.valueOf(newsListBean.getStatus()))) {
+                    NewsSearchBean newsSearchBean = new Gson().fromJson(decode, NewsSearchBean.class);
+                    if ("211".equals(String.valueOf(newsSearchBean.getStatus()))) {
                         LL_empty.setVisibility(View.GONE);
-                        SpUtil.putAndApply(context, "index" + String.valueOf(news_content_fragment_layout.getTag()), decode);
                         if (mRecyclerView != null) {
                             mRecyclerView.setEnabled(true);
                             mRecyclerView.loadMoreComplete();
@@ -76,10 +69,10 @@ public class NewsListFragment extends BaseLazyFragment {
                             refresh.setRefreshing(false);
                         }
                         if (p == 1) {
-                            adapter = new NewsListAdapter(newsListBean.getList().getLists(), context);
+                            adapter = new NewsSearchListAdapter(newsSearchBean.getMsg(), context);
                             mRecyclerView.setAdapter(adapter);
 
-                            if (newsListBean.getList().getLists().size() < 10) {
+                            if (newsSearchBean.getMsg().size() < 10) {
                                 refresh.setRefreshing(false);
                                 mRecyclerView.setCanloadMore(false);
                                 mRecyclerView.loadMoreEnd();
@@ -87,7 +80,7 @@ public class NewsListFragment extends BaseLazyFragment {
                                 mRecyclerView.setCanloadMore(true);
                             }
                         } else {
-                            adapter.setDatas((ArrayList) newsListBean.getList().getLists());
+                            adapter.setDatas((ArrayList) newsSearchBean.getMsg());
                         }
                     } else {
                         if (p != 1) {
@@ -100,7 +93,7 @@ public class NewsListFragment extends BaseLazyFragment {
                         mRecyclerView.setCanloadMore(false);
                         mRecyclerView.loadMoreEnd();
                     }
-                    newsListBean = null;
+                    newsSearchBean = null;
                     decode = null;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -122,29 +115,16 @@ public class NewsListFragment extends BaseLazyFragment {
     }
 
     @Override
-    protected void initPrepare() {
-
+    protected int setthislayout() {
+        return R.layout.news_content_activity_layout;
     }
 
     @Override
-    protected void onInvisible() {
-
-    }
-
-    @Override
-    protected void initData() {
-        getData();
-    }
-
-    @Override
-    protected View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        context = getActivity();
-        news_content_fragment_layout = View.inflate(getActivity(), R.layout.news_content_fragment_layout, null);
-        String pageId = getArguments().getString("pageId");
-        news_content_fragment_layout.setTag(pageId);
-        refresh = (SwipeRefreshLayout) news_content_fragment_layout.findViewById(R.id.refresh);
-        LL_empty = (RelativeLayout) news_content_fragment_layout.findViewById(R.id.LL_empty);
-        mRecyclerView = (WenguoyiRecycleView) news_content_fragment_layout.findViewById(R.id.ce_shi_lv);
+    protected void initview() {
+        rl_back = (FrameLayout) findViewById(R.id.rl_back);
+        refresh = (SwipeRefreshLayout) findViewById(R.id.refresh);
+        LL_empty = (RelativeLayout) findViewById(R.id.LL_empty);
+        mRecyclerView = (WenguoyiRecycleView) findViewById(R.id.ce_shi_lv);
         line = new SakuraLinearLayoutManager(context);
         line.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(line);
@@ -179,7 +159,24 @@ public class NewsListFragment extends BaseLazyFragment {
         textView.setText("-暂无更多-");
         mRecyclerView.setFootEndView(textView);
         refresh.setRefreshing(true);
-        return news_content_fragment_layout;
+        rl_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
+
+    @Override
+    protected void initListener() {
+
+    }
+
+    @Override
+    protected void initData() {
+        getData();
+    }
+
 
 }
