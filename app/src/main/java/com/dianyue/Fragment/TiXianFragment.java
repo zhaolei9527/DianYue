@@ -261,7 +261,11 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                 txTxlist();
                 break;
             case R.id.btn_tixian:
-                startActivity(new Intent(context, TiXianActivity.class));
+                if (!TextUtils.isEmpty("" + SpUtil.get(context, "zfb", ""))) {
+                    startActivity(new Intent(context, TiXianActivity.class));
+                } else {
+                    EasyToast.showShort(context, "请先前往我的资料里绑定支付宝帐号~");
+                }
                 break;
             default:
                 break;

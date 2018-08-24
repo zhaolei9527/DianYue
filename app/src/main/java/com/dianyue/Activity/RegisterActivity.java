@@ -2,6 +2,7 @@ package com.dianyue.Activity;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ import com.dianyue.Utils.Utils;
 import com.dianyue.Volley.VolleyInterface;
 import com.dianyue.Volley.VolleyRequest;
 import com.google.gson.Gson;
+
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -47,6 +50,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText et_name;
     private String name;
     private TextView tv_login;
+    private TextView tv_xieyi;
+    private CheckBox cb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +101,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         btn_getSMScode = (Button) findViewById(R.id.btn_getSMScode);
         btn_register = (Button) findViewById(R.id.btn_register);
         tv_login = (TextView) findViewById(R.id.tv_login);
+        tv_xieyi = (TextView) findViewById(R.id.tv_xieyi);
+        cb = (CheckBox) findViewById(R.id.cb);
         tv_login.setOnClickListener(this);
+        tv_xieyi.setOnClickListener(this);
         btn_getSMScode.setOnClickListener(this);
         btn_register.setOnClickListener(this);
         dialog = Utils.showLoadingDialog(context);
@@ -105,11 +113,20 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.tv_xieyi:
+                startActivity(new Intent(context, XieYiActivity.class));
+                break;
             case R.id.tv_login:
                 finish();
                 break;
             case R.id.btn_register:
-                submit();
+
+                if (cb.isChecked()) {
+                    submit();
+                } else {
+                    EasyToast.showShort(context, "请先勾选同意注册协议");
+                }
+
                 break;
             case R.id.btn_getSMScode:
                 account = et_account.getText().toString().trim();
@@ -117,7 +134,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
 
                 if (!Utils.isCellphone(account)) {
                     Toast.makeText(this, "请输入正确手机号", Toast.LENGTH_SHORT).show();

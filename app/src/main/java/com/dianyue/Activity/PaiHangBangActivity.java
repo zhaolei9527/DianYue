@@ -2,7 +2,6 @@ package com.dianyue.Activity;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,19 +22,16 @@ import com.dianyue.Utils.EasyToast;
 import com.dianyue.Utils.SpUtil;
 import com.dianyue.Utils.UrlUtils;
 import com.dianyue.Utils.Utils;
-import com.dianyue.View.ProgressView;
 import com.dianyue.View.SakuraLinearLayoutManager;
 import com.dianyue.View.WenguoyiRecycleView;
 import com.dianyue.Volley.VolleyInterface;
 import com.dianyue.Volley.VolleyRequest;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import me.fangx.haorefresh.LoadMoreListener;
 
 /**
  * com.dianyue.Activity
@@ -74,7 +70,6 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
     TextView tvLjmoney;
     @BindView(R.id.LL_empty)
     RelativeLayout LLEmpty;
-    private int p = 1;
     private SakuraLinearLayoutManager line;
 
     private boolean type = true;
@@ -92,36 +87,6 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
         line.setOrientation(LinearLayoutManager.VERTICAL);
         rvPaihang.setLayoutManager(line);
         rvPaihang.setItemAnimator(new DefaultItemAnimator());
-        ProgressView progressView = new ProgressView(context);
-        progressView.setIndicatorId(ProgressView.BallRotate);
-        progressView.setIndicatorColor(getResources().getColor(R.color.colorAccent));
-        rvPaihang.setFootLoadingView(progressView);
-        rvPaihang.setLoadMoreListener(new LoadMoreListener() {
-            @Override
-            public void onLoadMore() {
-                p = p + 1;
-                getData();
-            }
-        });
-        refresh.setProgressViewEndTarget(false, (int) getResources().getDimension(R.dimen.x105));
-        refresh.setColorSchemeResources(R.color.colorAccent);
-        refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        rvPaihang.setEnabled(false);
-                        p = 1;
-                        getData();
-                    }
-                }, 0);
-            }
-        });
-        TextView textView = new TextView(context);
-        textView.setText("-暂无更多-");
-        rvPaihang.setFootEndView(textView);
-        refresh.setRefreshing(true);
     }
 
     public void getData() {
@@ -165,10 +130,8 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
     PaiHangListAdapter adaptershouru;
     PaiHangShouTuListAdapter adaptershoutu;
 
-
     public void getPaiHangList() {
         HashMap<String, String> params = new HashMap<>(1);
-        params.put("page", String.valueOf(p));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("NewsListFragment", "params:" + params);
         VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "rank/index", "rank/index", params, new VolleyInterface(context) {
@@ -201,49 +164,34 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
                         if (refresh != null) {
                             refresh.setRefreshing(false);
                         }
-                        if (p == 1) {
 
-                            if (type) {
-                                adaptershouru = new PaiHangListAdapter(rankIndexBean.getList().getIncome(), context);
-                                rvPaihang.setAdapter(adaptershouru);
-                                if (rankIndexBean.getList().getIncome().size() < 10) {
-                                    refresh.setRefreshing(false);
-                                    rvPaihang.setCanloadMore(false);
-                                    rvPaihang.loadMoreEnd();
-                                } else {
-                                    rvPaihang.setCanloadMore(true);
-                                }
+                        if (type) {
+                            adaptershouru = new PaiHangListAdapter(rankIndexBean.getList().getIncome(), context);
+                            rvPaihang.setAdapter(adaptershouru);
+                            if (rankIndexBean.getList().getIncome().size() < 10) {
+                                refresh.setRefreshing(false);
+                                rvPaihang.setCanloadMore(false);
+                                rvPaihang.loadMoreEnd();
                             } else {
-                                adaptershoutu = new PaiHangShouTuListAdapter(rankIndexBean.getList().getChild(), context);
-                                rvPaihang.setAdapter(adaptershoutu);
-                                if (rankIndexBean.getList().getChild().size() < 10) {
-                                    refresh.setRefreshing(false);
-                                    rvPaihang.setCanloadMore(false);
-                                    rvPaihang.loadMoreEnd();
-                                } else {
-                                    rvPaihang.setCanloadMore(true);
-                                }
+                                rvPaihang.setCanloadMore(true);
                             }
-
                         } else {
-                            if (type) {
-                                adaptershouru.setDatas((ArrayList) rankIndexBean.getList().getIncome());
+                            adaptershoutu = new PaiHangShouTuListAdapter(rankIndexBean.getList().getChild(), context);
+                            rvPaihang.setAdapter(adaptershoutu);
+                            if (rankIndexBean.getList().getChild().size() < 10) {
+                                refresh.setRefreshing(false);
+                                rvPaihang.setCanloadMore(false);
+                                rvPaihang.loadMoreEnd();
                             } else {
-                                adaptershoutu.setDatas((ArrayList) rankIndexBean.getList().getChild());
+                                rvPaihang.setCanloadMore(true);
                             }
                         }
                     } else {
-                        if (p != 1) {
-                            p = p - 1;
-                            Toast.makeText(context, "没有更多了", Toast.LENGTH_SHORT).show();
-                        } else {
-                            LLEmpty.setVisibility(View.VISIBLE);
-                        }
+                        LLEmpty.setVisibility(View.VISIBLE);
                         refresh.setRefreshing(false);
                         rvPaihang.setCanloadMore(false);
                         rvPaihang.loadMoreEnd();
                     }
-                    rankIndexBean = null;
                     decode = null;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -265,7 +213,6 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         type = !type;
-        p = 1;
         switch (view.getId()) {
             case R.id.tv_leiji_shouru_paihang:
                 tvLeijiShoutuPaihang.setTextColor(getResources().getColor(R.color.text333));

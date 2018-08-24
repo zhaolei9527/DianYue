@@ -26,6 +26,7 @@ import com.dianyue.Activity.SettingActivity;
 import com.dianyue.Adapter.MeTxListAdapter;
 import com.dianyue.Bean.SelfIndexBean;
 import com.dianyue.R;
+import com.dianyue.Utils.EasyToast;
 import com.dianyue.Utils.SpUtil;
 import com.dianyue.Utils.UrlUtils;
 import com.dianyue.View.ProgressView;
@@ -131,6 +132,7 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
     @Override
     public void onResume() {
         super.onResume();
+        p = 1;
         getData();
     }
 
@@ -157,6 +159,14 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                 Log.e("MEFragment", result);
                 try {
 
+                    if (result.contains("\\u6ca1\\u6709\\u66f4\\u591a\\u4fe1\\u606f")) {
+                        EasyToast.showShort(context, "暂无更多");
+                        rvJilu.loadMoreComplete();
+                        rvJilu.setCanloadMore(false);
+                        rvJilu.loadMoreEnd();
+                        return;
+                    }
+
                     SelfIndexBean selfIndexBean = new Gson().fromJson(result, SelfIndexBean.class);
                     SimpleDraweeView.setImageURI(UrlUtils.URL + selfIndexBean.getUser().getHeadpic());
                     tvUsername.setText(selfIndexBean.getUser().getUsername());
@@ -170,6 +180,7 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                     SpUtil.putAndApply(context, "tel", selfIndexBean.getUser().getTel());
                     SpUtil.putAndApply(context, "pid", selfIndexBean.getUser().getPid());
                     SpUtil.putAndApply(context, "zfb", selfIndexBean.getUser().getAli_pay());
+                    SpUtil.putAndApply(context, "zfbname", selfIndexBean.getUser().getName());
                     SpUtil.putAndApply(context, "level", selfIndexBean.getUser().getLevel());
 
                     if ("1".equals(selfIndexBean.getUser().getLevel())) {

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
@@ -40,6 +41,10 @@ public class TiXianActivity extends BaseActivity implements View.OnClickListener
     EditText etChangeName;
     @BindView(R.id.btn_save)
     Button btnSave;
+    @BindView(R.id.tv_username)
+    TextView tvUsername;
+    @BindView(R.id.tv_zfb)
+    TextView tvZfb;
     private Dialog dialog;
     private String name;
 
@@ -50,6 +55,8 @@ public class TiXianActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     protected void initview() {
+        tvUsername.setText("" + SpUtil.get(context, "zfbname", ""));
+        tvZfb.setText("" + SpUtil.get(context, "zfb", ""));
     }
 
     @Override

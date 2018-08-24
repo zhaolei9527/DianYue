@@ -115,7 +115,7 @@ public class ShouTuFragment extends BaseLazyFragment {
                         @Override
                         public void onClick(View view) {
 
-                            if ("3".equals(SpUtil.get(mContext, "level", "")) || "4".equals(SpUtil.get(mContext, "level", ""))) {
+                            if ("4".equals(SpUtil.get(mContext, "level", ""))) {
                                 showShare();
                             } else {
                                 EasyToast.showShort(mContext, "资格不足，请先升级~");

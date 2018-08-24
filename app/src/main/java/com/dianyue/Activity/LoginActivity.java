@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,12 +42,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private TextView tv_forgetpassworld;
     private TextView tv_register;
     private Button btn_login;
-    private ImageView img_weixin;
     private int pswminlen = 6;
     private String account;
     private String password;
     private String openid = "";
     private TextView tv_quick;
+    private LinearLayout rl5;
 
     @Override
     protected void ready() {
@@ -68,7 +68,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         tv_register = (TextView) findViewById(R.id.tv_register);
         tv_quick = (TextView) findViewById(R.id.tv_quick);
         btn_login = (Button) findViewById(R.id.btn_login);
-        img_weixin = (ImageView) findViewById(R.id.img_weixin);
+        rl5 = (LinearLayout) findViewById(R.id.rl5);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         tv_forgetpassworld.setOnClickListener(this);
         tv_register.setOnClickListener(this);
         tv_quick.setOnClickListener(this);
-        img_weixin.setOnClickListener(this);
+        rl5.setOnClickListener(this);
         dialog = Utils.showLoadingDialog(context);
     }
 
@@ -119,7 +119,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.tv_register:
                 startActivity(new Intent(context, RegisterActivity.class));
                 break;
-            case R.id.img_weixin:
+            case R.id.rl5:
                 dialog.show();
                 Platform weChat = ShareSDK.getPlatform(Wechat.NAME);
 //回调信息，可以在这里获取基本的授权返回的信息，但是注意如果做提示和UI操作要传到主线程handler里去执行
@@ -225,6 +225,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         SpUtil.putAndApply(context, "tel", loginBean.getUser().getTel());
                         SpUtil.putAndApply(context, "pid", loginBean.getUser().getPid());
                         SpUtil.putAndApply(context, "zfb", loginBean.getUser().getAli_pay());
+                        SpUtil.putAndApply(context, "zfbname", loginBean.getUser().getName());
                         SpUtil.putAndApply(context, "level", loginBean.getUser().getLevel());
                         gotoMain();
                     } else if ("214".equals(loginBean.getStatus())) {

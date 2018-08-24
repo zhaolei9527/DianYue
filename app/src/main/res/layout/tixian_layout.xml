@@ -45,6 +45,46 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/x12"
+            android:layout_marginLeft="@dimen/x12"
+            android:layout_marginTop="@dimen/x15">
+
+            <ImageView
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/x30"
+                android:background="@mipmap/pay_zfb" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x12"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text666" />
+
+                <TextView
+                    android:id="@+id/tv_zfb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x5"
+                    android:textColor="@color/text666" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
         <RelativeLayout
             android:layout_width="@dimen/x290"
             android:layout_height="@dimen/y33"
@@ -66,6 +106,23 @@
                 android:textColorHint="#999" />
 
         </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x12"
+            android:layout_marginTop="@dimen/x5"
+            android:text="*提现到账需1-3个工作日"
+            android:textColor="@color/textred" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x12"
+            android:layout_marginTop="@dimen/x5"
+            android:text="*请核对好自己的支付包提现信息，避免提现失败"
+            android:textColor="@color/textred" />
 
         <Button
             android:id="@+id/btn_save"

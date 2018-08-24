@@ -162,7 +162,11 @@ public class HuiYuanShengjiActivity extends BaseActivity implements View.OnClick
 
     @Override
     protected void initData() {
-
+        lv = 2;
+        tvLv1.setTextColor(getResources().getColor(R.color.textred));
+        tvLv2.setTextColor(getResources().getColor(R.color.text333));
+        tvLv3.setTextColor(getResources().getColor(R.color.text333));
+        getUserPlace("2");
     }
 
     @Override
@@ -255,16 +259,13 @@ public class HuiYuanShengjiActivity extends BaseActivity implements View.OnClick
                 String decode = result;
                 Log.e("RegisterActivity", decode);
                 try {
-
-                    tvSubmit.setText("确定升级（" + result + "元）");
-
+                    tvSubmit.setText("确定升级（" + result+".00)");
                     if ("0".equals(result)) {
                         tvSubmit.setEnabled(false);
                         tvSubmit.setText("不可重复升级");
                     } else {
                         tvSubmit.setEnabled(true);
                     }
-
                     decode = null;
                 } catch (Exception e) {
                     e.printStackTrace();

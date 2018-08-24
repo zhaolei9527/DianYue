@@ -143,6 +143,7 @@ public class FlashActivity extends BaseActivity {
                         SpUtil.putAndApply(context, "tel", loginBean.getUser().getTel());
                         SpUtil.putAndApply(context, "pid", loginBean.getUser().getPid());
                         SpUtil.putAndApply(context, "zfb", loginBean.getUser().getAli_pay());
+                        SpUtil.putAndApply(context, "zfbname", loginBean.getUser().getName());
                         SpUtil.putAndApply(context, "level", loginBean.getUser().getLevel());
                         gotoMain();
                     } else {
