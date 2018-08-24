@@ -2,7 +2,6 @@ package com.dianyue.Activity;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
@@ -50,8 +49,6 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
     ImageView img;
     @BindView(R.id.rv_paihang)
     WenguoyiRecycleView rvPaihang;
-    @BindView(R.id.refresh)
-    SwipeRefreshLayout refresh;
     @BindView(R.id.tv_leiji_shouru_paihang)
     TextView tvLeijiShouruPaihang;
     @BindView(R.id.view1)
@@ -161,15 +158,11 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
                             rvPaihang.loadMoreComplete();
                             rvPaihang.setCanloadMore(true);
                         }
-                        if (refresh != null) {
-                            refresh.setRefreshing(false);
-                        }
 
                         if (type) {
                             adaptershouru = new PaiHangListAdapter(rankIndexBean.getList().getIncome(), context);
                             rvPaihang.setAdapter(adaptershouru);
                             if (rankIndexBean.getList().getIncome().size() < 10) {
-                                refresh.setRefreshing(false);
                                 rvPaihang.setCanloadMore(false);
                                 rvPaihang.loadMoreEnd();
                             } else {
@@ -179,7 +172,6 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
                             adaptershoutu = new PaiHangShouTuListAdapter(rankIndexBean.getList().getChild(), context);
                             rvPaihang.setAdapter(adaptershoutu);
                             if (rankIndexBean.getList().getChild().size() < 10) {
-                                refresh.setRefreshing(false);
                                 rvPaihang.setCanloadMore(false);
                                 rvPaihang.loadMoreEnd();
                             } else {
@@ -188,14 +180,12 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
                         }
                     } else {
                         LLEmpty.setVisibility(View.VISIBLE);
-                        refresh.setRefreshing(false);
                         rvPaihang.setCanloadMore(false);
                         rvPaihang.loadMoreEnd();
                     }
                     decode = null;
                 } catch (Exception e) {
                     e.printStackTrace();
-                    refresh.setRefreshing(false);
                     Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }

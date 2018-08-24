@@ -23,7 +23,7 @@ android {
         applicationId "com.dianyue"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 5
+        versionCode 6
         versionName "1.2"
         multiDexEnabled true
         useLibrary 'org.apache.http.legacy'

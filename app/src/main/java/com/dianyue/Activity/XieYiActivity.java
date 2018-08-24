@@ -125,7 +125,8 @@ public class XieYiActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        getZhuce();
+        forumContext.loadUrl("http://dy.t.100help.net/dysys.php/share/zhuce");
+//        getZhuce();
     }
 
     private NewsDetailsBean newsDetailsBean;
@@ -145,7 +146,6 @@ public class XieYiActivity extends BaseActivity {
                     if ("1".equals(newsDetailsBean.getStatus())) {
                         //  tvTitle.setText(newsDetailsBean.getNews().getTitle());
                         //  tvTime.setText("时间：" + DateUtils.getMillon(Long.parseLong(newsDetailsBean.getNews().getAddtime()) * 1000));
-                        forumContext.loadUrl(newsDetailsBean.getNews().getUrl());
                     } else {
                         EasyToast.showShort(context, R.string.hasError);
                         finish();
