@@ -22,6 +22,9 @@ public class TxShareBean {
      * msg : 查询成功
      */
 
+
+    //{"status":1,"share":[{"mtime":"2018-08-26","fmoney":"0.13"}],"msg":"\u67e5\u8be2\u6210\u529f"}
+
     private int status;
     private String msg;
     private List<ShareBean> share;

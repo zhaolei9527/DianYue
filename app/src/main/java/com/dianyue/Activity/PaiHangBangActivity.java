@@ -95,26 +95,22 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
     protected void initListener() {
         tvLeijiShouruPaihang.setOnClickListener(this);
         tvLeijiShoutuPaihang.setOnClickListener(this);
-
         rlBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-
     }
 
     @Override
     protected void initData() {
-
         if (Utils.isConnected(context)) {
             dialog = Utils.showLoadingDialog(context);
             getData();
         } else {
             EasyToast.showShort(context, R.string.Networkexception);
         }
-
     }
 
     @Override
@@ -136,21 +132,15 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
             public void onMySuccess(String result) {
                 String decode = result;
                 try {
-
                     dialog.dismiss();
-
                     Log.e("NewsListFragment", decode.toString());
                     RankIndexBean rankIndexBean = new Gson().fromJson(decode, RankIndexBean.class);
                     tvBianhao.setText("商户编号：" + rankIndexBean.getList().getUser().getId());
-
                     if (!"0".equals(rankIndexBean.getList().getLjmoney())) {
                         tvLjmoney.setText(rankIndexBean.getList().getLjmoney());
                     }
-
                     tvUsername.setText(rankIndexBean.getList().getUser().getUsername());
-
                     SimpleDraweeView.setImageURI(UrlUtils.URL + String.valueOf(SpUtil.get(context, "img", "")));
-
                     if ("211".equals(String.valueOf(rankIndexBean.getStatus()))) {
                         LLEmpty.setVisibility(View.GONE);
                         if (rvPaihang != null) {
@@ -158,7 +148,6 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
                             rvPaihang.loadMoreComplete();
                             rvPaihang.setCanloadMore(true);
                         }
-
                         if (type) {
                             adaptershouru = new PaiHangListAdapter(rankIndexBean.getList().getIncome(), context);
                             rvPaihang.setAdapter(adaptershouru);

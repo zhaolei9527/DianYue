@@ -250,15 +250,29 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include layout="@layout/layout_empty"></include>
-
-            <com.dianyue.View.WenguoyiRecycleView
-                android:id="@+id/rv_jilu"
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/refresh"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipChildren="false"
-                android:clipToPadding="false"></com.dianyue.View.WenguoyiRecycleView>
+                android:layout_height="match_parent">
 
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <include layout="@layout/layout_empty"></include>
+
+                    <com.dianyue.View.WenguoyiRecycleView
+                        android:id="@+id/rv_jilu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"></com.dianyue.View.WenguoyiRecycleView>
+
+                </FrameLayout>
+
+
+            </android.support.v4.widget.SwipeRefreshLayout>
         </LinearLayout>
 
     </LinearLayout>

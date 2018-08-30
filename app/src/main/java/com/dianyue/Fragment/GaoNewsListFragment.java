@@ -62,6 +62,13 @@ public class GaoNewsListFragment extends BaseLazyFragment {
                 String decode = result;
                 try {
                     Log.e("NewsListFragment", decode.toString());
+
+                    if (decode.contains("\\u6ca1\\u6709\\u66f4\\u591a\\u65b0\\u95fb")){
+                        refresh.setRefreshing(false);
+                        LL_empty.setVisibility(View.VISIBLE);
+                        return;
+                    }
+
                     GaoNewsListBean newsListBean = new Gson().fromJson(decode, GaoNewsListBean.class);
                     if ("211".equals(String.valueOf(newsListBean.getStatus()))) {
                         LL_empty.setVisibility(View.GONE);
@@ -79,8 +86,6 @@ public class GaoNewsListFragment extends BaseLazyFragment {
                             mRecyclerView.setAdapter(adapter);
                             if (newsListBean.getMsg().size() < 10) {
                                 refresh.setRefreshing(false);
-                                mRecyclerView.setCanloadMore(false);
-                                mRecyclerView.loadMoreEnd();
                             } else {
                                 mRecyclerView.setCanloadMore(true);
                             }
@@ -90,13 +95,11 @@ public class GaoNewsListFragment extends BaseLazyFragment {
                     } else {
                         if (p != 1) {
                             p = p - 1;
-                            Toast.makeText(context, "没有更多了", Toast.LENGTH_SHORT).show();
                         } else {
                             LL_empty.setVisibility(View.VISIBLE);
                         }
+                        mRecyclerView.loadMoreComplete();
                         refresh.setRefreshing(false);
-                        mRecyclerView.setCanloadMore(false);
-                        mRecyclerView.loadMoreEnd();
                     }
                     newsListBean = null;
                     decode = null;

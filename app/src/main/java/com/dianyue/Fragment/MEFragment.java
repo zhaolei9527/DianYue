@@ -26,7 +26,6 @@ import com.dianyue.Activity.SettingActivity;
 import com.dianyue.Adapter.MeTxListAdapter;
 import com.dianyue.Bean.SelfIndexBean;
 import com.dianyue.R;
-import com.dianyue.Utils.EasyToast;
 import com.dianyue.Utils.SpUtil;
 import com.dianyue.Utils.UrlUtils;
 import com.dianyue.View.ProgressView;
@@ -121,13 +120,11 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
 
     @Override
     protected void onInvisible() {
-
     }
 
     @Override
     protected void initData() {
     }
-
 
     @Override
     public void onResume() {
@@ -160,10 +157,8 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                 try {
 
                     if (result.contains("\\u6ca1\\u6709\\u66f4\\u591a\\u4fe1\\u606f")) {
-                        EasyToast.showShort(context, "暂无更多");
                         rvJilu.loadMoreComplete();
-                        rvJilu.setCanloadMore(false);
-                        rvJilu.loadMoreEnd();
+                        Toast.makeText(context, "加载完成", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -171,7 +166,6 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                     SimpleDraweeView.setImageURI(UrlUtils.URL + selfIndexBean.getUser().getHeadpic());
                     tvUsername.setText(selfIndexBean.getUser().getUsername());
                     tvBianhao.setText("商户编号：" + selfIndexBean.getUser().getId());
-
                     SpUtil.putAndApply(context, "username", selfIndexBean.getUser().getUsername());
                     if (!TextUtils.isEmpty(selfIndexBean.getUser().getHeadpic())) {
                         SpUtil.putAndApply(context, "img", selfIndexBean.getUser().getHeadpic());
@@ -182,7 +176,6 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                     SpUtil.putAndApply(context, "zfb", selfIndexBean.getUser().getAli_pay());
                     SpUtil.putAndApply(context, "zfbname", selfIndexBean.getUser().getName());
                     SpUtil.putAndApply(context, "level", selfIndexBean.getUser().getLevel());
-
                     if ("1".equals(selfIndexBean.getUser().getLevel())) {
                         tvLv.setBackground(getResources().getDrawable(R.mipmap.putong_m));
                     } else if ("2".equals(selfIndexBean.getUser().getLevel())) {
@@ -192,15 +185,12 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                     } else if ("4".equals(selfIndexBean.getUser().getLevel())) {
                         tvLv.setBackground(getResources().getDrawable(R.mipmap.zuanshi_m));
                     }
-
                     if (!"0".equals(selfIndexBean.getUser().getMoney())) {
                         tvYue.setText(selfIndexBean.getUser().getMoney());
                     }
-
                     tvDayShoutu.setText(selfIndexBean.getUser().getDchild());
                     tvDayShouyi.setText(selfIndexBean.getUser().getDmoney());
                     tvLeijiShoutu.setText(selfIndexBean.getList().getLjchild());
-
                     if ("211".equals(String.valueOf(selfIndexBean.getStatus()))) {
                         LLEmpty.setVisibility(View.GONE);
                         if (rvJilu != null) {
@@ -230,8 +220,6 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                         rvJilu.setCanloadMore(false);
                         rvJilu.loadMoreEnd();
                     }
-
-
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
@@ -282,4 +270,5 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                 break;
         }
     }
+
 }

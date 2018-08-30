@@ -81,8 +81,6 @@ public class NewsListFragment extends BaseLazyFragment {
 
                             if (newsListBean.getList().getLists().size() < 10) {
                                 refresh.setRefreshing(false);
-                                mRecyclerView.setCanloadMore(false);
-                                mRecyclerView.loadMoreEnd();
                             } else {
                                 mRecyclerView.setCanloadMore(true);
                             }
@@ -92,13 +90,11 @@ public class NewsListFragment extends BaseLazyFragment {
                     } else {
                         if (p != 1) {
                             p = p - 1;
-                            Toast.makeText(context, "没有更多了", Toast.LENGTH_SHORT).show();
                         } else {
                             LL_empty.setVisibility(View.VISIBLE);
                         }
+                        mRecyclerView.loadMoreComplete();
                         refresh.setRefreshing(false);
-                        mRecyclerView.setCanloadMore(false);
-                        mRecyclerView.loadMoreEnd();
                     }
                     newsListBean = null;
                     decode = null;

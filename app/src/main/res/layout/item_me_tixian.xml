@@ -46,8 +46,8 @@
             android:layout_marginLeft="@dimen/x10"
             android:gravity="end"
             android:paddingRight="@dimen/x10"
-            android:textColor="@color/text333"
-            android:textSize="@dimen/x15" />
+            android:textColor="@color/text999"
+            android:textSize="@dimen/x12" />
     </LinearLayout>
 
     <View

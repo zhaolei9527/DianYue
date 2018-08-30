@@ -4,7 +4,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
@@ -89,6 +91,8 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
     WenguoyiRecycleView rvJilu;
     @BindView(R.id.LL_empty)
     RelativeLayout LLEmpty;
+    @BindView(R.id.refresh)
+    SwipeRefreshLayout refresh;
     private Context context;
     private int p = 1;
     private SakuraLinearLayoutManager line;
@@ -116,17 +120,37 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
             @Override
             public void onLoadMore() {
                 p = p + 1;
-                getData();
+                if (load == 1) {
+                    txChild();
+                } else if (load == 2) {
+                    txShare();
+                } else if (load == 3) {
+                    txTxlist();
+                }
             }
         });
-
-        TextView textView = new TextView(context);
-        textView.setText("-暂无更多-");
-        rvJilu.setFootEndView(textView);
-
-
+        refresh.setProgressViewEndTarget(false, (int) getResources().getDimension(R.dimen.x105));
+        refresh.setColorSchemeResources(R.color.colorAccent);
+        refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        rvJilu.setEnabled(false);
+                        p = 1;
+                        if (load == 1) {
+                            txChild();
+                        } else if (load == 2) {
+                            txShare();
+                        } else if (load == 3) {
+                            txTxlist();
+                        }
+                    }
+                }, 0);
+            }
+        });
         btnTixian.setOnClickListener(this);
-
     }
 
     @Override
@@ -177,21 +201,9 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                 try {
                     TxIndexBean txIndexBean = new Gson().fromJson(result, TxIndexBean.class);
                     if ("211".equals(txIndexBean.getStatus())) {
-                        if (TextUtils.isEmpty(txIndexBean.getList().getZmoney())) {
-
-                            if (!TextUtils.isEmpty(txIndexBean.getList().getZmoney())) {
-                                tvYue.setText(txIndexBean.getList().getZmoney() + "元");
-                            }
-
-                            if (!TextUtils.isEmpty(txIndexBean.getList().getLjmoney())) {
-                                tvLeijiShouyi.setText(txIndexBean.getList().getLjmoney() + "元");
-                            }
-
-                            if (TextUtils.isEmpty(txIndexBean.getList().getMoney())) {
-                                tvDayShouyi.setText(txIndexBean.getList().getMoney() + "元");
-                            }
-
-                        }
+                        tvYue.setText(txIndexBean.getList().getMoney() + "元");
+                        tvLeijiShouyi.setText(txIndexBean.getList().getLjmoney() + "元");
+                        tvDayShouyi.setText(txIndexBean.getList().getZmoney() + "元");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -261,7 +273,8 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                 txTxlist();
                 break;
             case R.id.btn_tixian:
-                if (!TextUtils.isEmpty("" + SpUtil.get(context, "zfb", ""))) {
+                if (!TextUtils.isEmpty("" + SpUtil.get(context, "zfb", "")) && !"0".equals(String.valueOf(SpUtil.get(context, "zfb", "")))) {
+                    Log.e("TiXianFragment", String.valueOf(SpUtil.get(context, "zfb", "")));
                     startActivity(new Intent(context, TiXianActivity.class));
                 } else {
                     EasyToast.showShort(context, "请先前往我的资料里绑定支付宝帐号~");
@@ -289,6 +302,11 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                     dialog.dismiss();
                     Log.e("tx/child", decode.toString());
                     TxChildBean txChildBean = new Gson().fromJson(decode, TxChildBean.class);
+
+                    if (refresh != null) {
+                        refresh.setRefreshing(false);
+                    }
+
                     if ("1".equals(String.valueOf(txChildBean.getStatus()))) {
                         LLEmpty.setVisibility(View.GONE);
                         if (rvJilu != null) {
@@ -355,6 +373,11 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                 try {
                     dialog.dismiss();
                     Log.e("tx/share", decode.toString());
+
+                    if (refresh != null) {
+                        refresh.setRefreshing(false);
+                    }
+
                     TxShareBean txShareBean = new Gson().fromJson(decode, TxShareBean.class);
                     if ("1".equals(String.valueOf(txShareBean.getStatus()))) {
                         LLEmpty.setVisibility(View.GONE);
@@ -366,12 +389,6 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                         if (p == 1) {
                             adapter2 = new TiXianMingShareAdapter(txShareBean.getShare(), context);
                             rvJilu.setAdapter(adapter2);
-                            if (txShareBean.getShare().size() < 10) {
-                                rvJilu.setCanloadMore(false);
-                                rvJilu.loadMoreEnd();
-                            } else {
-                                rvJilu.setCanloadMore(true);
-                            }
                         } else {
                             adapter2.setDatas((ArrayList) txShareBean.getShare());
                         }
@@ -418,7 +435,9 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                 String decode = result;
                 try {
                     dialog.dismiss();
-
+                    if (refresh != null) {
+                        refresh.setRefreshing(false);
+                    }
                     Log.e("tx/txlist", decode.toString());
                     TxTxlistBean txTxlistBean = new Gson().fromJson(decode, TxTxlistBean.class);
                     if ("1".equals(String.valueOf(txTxlistBean.getStatus()))) {
