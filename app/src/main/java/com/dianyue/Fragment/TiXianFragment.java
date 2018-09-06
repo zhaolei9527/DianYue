@@ -309,6 +309,7 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
 
                     if ("1".equals(String.valueOf(txChildBean.getStatus()))) {
                         LLEmpty.setVisibility(View.GONE);
+                        rvJilu.setVisibility(View.VISIBLE);
                         if (rvJilu != null) {
                             rvJilu.setEnabled(true);
                             rvJilu.loadMoreComplete();
@@ -330,9 +331,9 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                         if (p != 1) {
                             p = p - 1;
                             Toast.makeText(context, "没有更多了", Toast.LENGTH_SHORT).show();
-                        } else {
-                            LLEmpty.setVisibility(View.VISIBLE);
                         }
+                        LLEmpty.setVisibility(View.VISIBLE);
+                        rvJilu.setVisibility(View.GONE);
                         rvJilu.setCanloadMore(false);
                         rvJilu.loadMoreEnd();
                     }
@@ -381,6 +382,7 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                     TxShareBean txShareBean = new Gson().fromJson(decode, TxShareBean.class);
                     if ("1".equals(String.valueOf(txShareBean.getStatus()))) {
                         LLEmpty.setVisibility(View.GONE);
+                        rvJilu.setVisibility(View.VISIBLE);
                         if (rvJilu != null) {
                             rvJilu.setEnabled(true);
                             rvJilu.loadMoreComplete();
@@ -393,11 +395,11 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                             adapter2.setDatas((ArrayList) txShareBean.getShare());
                         }
                     } else {
+                        LLEmpty.setVisibility(View.VISIBLE);
+                        rvJilu.setVisibility(View.GONE);
                         if (p != 1) {
                             p = p - 1;
                             Toast.makeText(context, "没有更多了", Toast.LENGTH_SHORT).show();
-                        } else {
-                            LLEmpty.setVisibility(View.VISIBLE);
                         }
                         rvJilu.setCanloadMore(false);
                         rvJilu.loadMoreEnd();
@@ -442,6 +444,7 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                     TxTxlistBean txTxlistBean = new Gson().fromJson(decode, TxTxlistBean.class);
                     if ("1".equals(String.valueOf(txTxlistBean.getStatus()))) {
                         LLEmpty.setVisibility(View.GONE);
+                        rvJilu.setVisibility(View.VISIBLE);
                         if (rvJilu != null) {
                             rvJilu.setEnabled(true);
                             rvJilu.loadMoreComplete();
@@ -463,9 +466,9 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                         if (p != 1) {
                             p = p - 1;
                             Toast.makeText(context, "没有更多了", Toast.LENGTH_SHORT).show();
-                        } else {
-                            LLEmpty.setVisibility(View.VISIBLE);
                         }
+                        LLEmpty.setVisibility(View.VISIBLE);
+                        rvJilu.setVisibility(View.GONE);
                         rvJilu.setCanloadMore(false);
                         rvJilu.loadMoreEnd();
                     }

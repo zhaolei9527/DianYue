@@ -152,19 +152,19 @@ public class MingXiActivity extends BaseActivity implements View.OnClickListener
                         }
 
                         if (!TextUtils.isEmpty(txIndexBean.getList().getLjmoney())) {
-                            tvShouruheji.setText("收入合计:" + txIndexBean.getList().getLjmoney() + "元");
+                            tvShouruheji.setText("收入合计: " + txIndexBean.getList().getLjmoney() + "元");
                         }
 
                         if (!TextUtils.isEmpty(txIndexBean.getList().getZmoney())) {
-                            tvDayShoutu.setText("昨日收入:" + txIndexBean.getList().getZmoney() + "元");
+                            tvDayShoutu.setText("昨日收入: " + txIndexBean.getList().getZmoney() + "元");
                         }
 
                         if (!TextUtils.isEmpty(txIndexBean.getList().getJchild())) {
-                            tvDayShoutu.setText("今日收徒:" + txIndexBean.getList().getJchild() + "人");
+                            tvDayShoutu.setText("今日收徒: " + txIndexBean.getList().getJchild() + "人");
                         }
 
                         if (!TextUtils.isEmpty(txIndexBean.getList().getCmoney())) {
-                            tvShoutushouyi.setText("收徒收益:" + txIndexBean.getList().getCmoney() + "元");
+                            tvShoutushouyi.setText("收徒收益: " + txIndexBean.getList().getCmoney() + "元");
                         }
 
                     }

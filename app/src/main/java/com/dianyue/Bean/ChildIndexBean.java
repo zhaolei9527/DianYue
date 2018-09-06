@@ -16,10 +16,9 @@ import java.util.List;
  */
 public class ChildIndexBean {
 
-
     /**
      * status : 211
-     * list : {"zchild":"0","zlist":null,"jchild":"0","jmoney":null}
+     * list : {"zchild":"0","zmoney":0,"jchild":"0","zrmoney":0}
      */
 
     private String status;
@@ -52,15 +51,15 @@ public class ChildIndexBean {
     public static class ListBean {
         /**
          * zchild : 0
-         * zlist : null
+         * zmoney : 0
          * jchild : 0
-         * jmoney : null
+         * zrmoney : 0
          */
 
         private String zchild;
-        private String zlist;
+        private String zmoney;
         private String jchild;
-        private String jmoney;
+        private String zrmoney;
 
         public static List<ListBean> arrayListBeanFromData(String str) {
 
@@ -78,12 +77,12 @@ public class ChildIndexBean {
             this.zchild = zchild;
         }
 
-        public String getZlist() {
-            return zlist;
+        public String getZmoney() {
+            return zmoney;
         }
 
-        public void setZlist(String zlist) {
-            this.zlist = zlist;
+        public void setZmoney(String zmoney) {
+            this.zmoney = zmoney;
         }
 
         public String getJchild() {
@@ -94,12 +93,12 @@ public class ChildIndexBean {
             this.jchild = jchild;
         }
 
-        public String getJmoney() {
-            return jmoney;
+        public String getZrmoney() {
+            return zrmoney;
         }
 
-        public void setJmoney(String jmoney) {
-            this.jmoney = jmoney;
+        public void setZrmoney(String zrmoney) {
+            this.zrmoney = zrmoney;
         }
     }
 }

@@ -136,8 +136,8 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
                     Log.e("NewsListFragment", decode.toString());
                     RankIndexBean rankIndexBean = new Gson().fromJson(decode, RankIndexBean.class);
                     tvBianhao.setText("商户编号：" + rankIndexBean.getList().getUser().getId());
-                    if (!"0".equals(rankIndexBean.getList().getLjmoney())) {
-                        tvLjmoney.setText(rankIndexBean.getList().getLjmoney());
+                    if (!"0".equals(rankIndexBean.getLjmoney())) {
+                        tvLjmoney.setText(rankIndexBean.getLjmoney());
                     }
                     tvUsername.setText(rankIndexBean.getList().getUser().getUsername());
                     SimpleDraweeView.setImageURI(UrlUtils.URL + String.valueOf(SpUtil.get(context, "img", "")));

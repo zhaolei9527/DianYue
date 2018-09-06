@@ -71,7 +71,6 @@ public class NewsDetailsActivity extends BaseActivity {
             finish();
         }
 
-
         IX5WebViewExtension ix5 = forumContext.getX5WebViewExtension();
         if (null != ix5) {
             ix5.setScrollBarFadingEnabled(false);
@@ -91,7 +90,6 @@ public class NewsDetailsActivity extends BaseActivity {
         forumContext.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
                 return true;
             }
 
@@ -116,8 +114,6 @@ public class NewsDetailsActivity extends BaseActivity {
             @Override
             public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
-                Toast.makeText(context, getString(R.string.hasError), Toast.LENGTH_SHORT).show();
-
             }
         });
 
@@ -130,6 +126,7 @@ public class NewsDetailsActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
+
         rlBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

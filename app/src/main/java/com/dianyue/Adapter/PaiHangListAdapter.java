@@ -2,6 +2,7 @@ package com.dianyue.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,25 +53,32 @@ public class PaiHangListAdapter extends RecyclerView.Adapter<PaiHangListAdapter.
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        if (position == 0 || position == 1 || position == 2) {
-            if (position == 0) {
-                holder.imgLv.setBackground(mContext.getResources().getDrawable(R.mipmap.level1));
-            } else if (position == 1) {
-                holder.imgLv.setBackground(mContext.getResources().getDrawable(R.mipmap.level2));
-            } else if (position == 2) {
-                holder.imgLv.setBackground(mContext.getResources().getDrawable(R.mipmap.level3));
+        try {
+            if (position == 0 || position == 1 || position == 2) {
+                if (position == 0) {
+                    holder.imgLv.setBackground(mContext.getResources().getDrawable(R.mipmap.level1));
+                } else if (position == 1) {
+                    holder.imgLv.setBackground(mContext.getResources().getDrawable(R.mipmap.level2));
+                } else if (position == 2) {
+                    holder.imgLv.setBackground(mContext.getResources().getDrawable(R.mipmap.level3));
+                }
+                holder.tvLv.setVisibility(View.GONE);
+                holder.imgLv.setVisibility(View.VISIBLE);
+            } else {
+                holder.imgLv.setVisibility(View.GONE);
+                holder.tvLv.setVisibility(View.VISIBLE);
+                holder.tvLv.setText(String.valueOf(position + 1));
             }
-            holder.tvLv.setVisibility(View.GONE);
-            holder.imgLv.setVisibility(View.VISIBLE);
-        } else {
-            holder.imgLv.setVisibility(View.GONE);
-            holder.tvLv.setVisibility(View.VISIBLE);
-            holder.tvLv.setText(String.valueOf(position + 1));
+
+            Log.e("PaiHangListAdapter", datas.get(position).toString());
+
+            holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getHeadpic());
+            holder.tvUsername.setText(datas.get(position).getUsername());
+            holder.tvTime.setText(datas.get(position).getNum() + "元");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getHeadpic());
-        holder.tvUsername.setText(datas.get(position).getUsername());
-        holder.tvTime.setText(datas.get(position).getDmoney() + "元");
 
     }
 

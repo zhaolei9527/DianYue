@@ -63,10 +63,18 @@ public class GaoNewsListFragment extends BaseLazyFragment {
                 try {
                     Log.e("NewsListFragment", decode.toString());
 
-                    if (decode.contains("\\u6ca1\\u6709\\u66f4\\u591a\\u65b0\\u95fb")){
-                        refresh.setRefreshing(false);
-                        LL_empty.setVisibility(View.VISIBLE);
-                        return;
+                    if (p == 1) {
+                        if (decode.contains("\\u6ca1\\u6709\\u66f4\\u591a\\u65b0\\u95fb")) {
+                            refresh.setRefreshing(false);
+                            LL_empty.setVisibility(View.VISIBLE);
+                            return;
+                        }
+                    }else {
+                        if (decode.contains("\\u6ca1\\u6709\\u66f4\\u591a\\u65b0\\u95fb")) {
+                            mRecyclerView.loadMoreComplete();
+                            mRecyclerView.setCanloadMore(true);
+                            return;
+                        }
                     }
 
                     GaoNewsListBean newsListBean = new Gson().fromJson(decode, GaoNewsListBean.class);

@@ -16,13 +16,16 @@ import java.util.List;
  */
 public class RankIndexBean {
 
+
     /**
      * status : 211
-     * list : {"income":[{"username":"啦啦啦","headpic":"","dmoney":"4000"},{"username":"大萨达","headpic":"","dmoney":"500"},{"username":"sakura","headpic":"","dmoney":"0"}],"child":[{"username":"大萨达","headpic":"","dchild":"23"},{"username":"啦啦啦","headpic":"","dchild":"20"},{"username":"sakura","headpic":"","dchild":"0"}],"ljmoney":0,"user":{"username":"sakura","id":"5"}}
+     * list : {"income":[{"username":"测试","headpic":"/Public/uploads/news/2018-09-01/5b8a0196407bf.jpg","num":"100","rank":1}],"child":[{"username":"万水千山","headpic":"/Public/uploads/news/2018-09-01/5b8a047198d27.jpg","num":"1232132","rank":1}],"user":{"headpic":"/Public/home/images/default.png","username":"婆婆最新","id":"150600"}}
+     * ljmoney : 1297.02
      */
 
     private String status;
     private ListBean list;
+    private String ljmoney;
 
     public static List<RankIndexBean> arrayRankIndexBeanFromData(String str) {
 
@@ -48,16 +51,21 @@ public class RankIndexBean {
         this.list = list;
     }
 
-    public static class ListBean {
+    public String getLjmoney() {
+        return ljmoney;
+    }
 
+    public void setLjmoney(String ljmoney) {
+        this.ljmoney = ljmoney;
+    }
+
+    public static class ListBean {
         /**
-         * income : [{"username":"啦啦啦","headpic":"","dmoney":"4000"},{"username":"大萨达","headpic":"","dmoney":"500"},{"username":"sakura","headpic":"","dmoney":"0"}]
-         * child : [{"username":"大萨达","headpic":"","dchild":"23"},{"username":"啦啦啦","headpic":"","dchild":"20"},{"username":"sakura","headpic":"","dchild":"0"}]
-         * ljmoney : 0
-         * user : {"username":"sakura","id":"5"}
+         * income : [{"username":"测试","headpic":"/Public/uploads/news/2018-09-01/5b8a0196407bf.jpg","num":"100","rank":1}]
+         * child : [{"username":"万水千山","headpic":"/Public/uploads/news/2018-09-01/5b8a047198d27.jpg","num":"1232132","rank":1}]
+         * user : {"headpic":"/Public/home/images/default.png","username":"婆婆最新","id":"150600"}
          */
 
-        private String ljmoney;
         private UserBean user;
         private List<IncomeBean> income;
         private List<ChildBean> child;
@@ -68,14 +76,6 @@ public class RankIndexBean {
             }.getType();
 
             return new Gson().fromJson(str, listType);
-        }
-
-        public String getLjmoney() {
-            return ljmoney;
-        }
-
-        public void setLjmoney(String ljmoney) {
-            this.ljmoney = ljmoney;
         }
 
         public UserBean getUser() {
@@ -104,10 +104,12 @@ public class RankIndexBean {
 
         public static class UserBean {
             /**
-             * username : sakura
-             * id : 5
+             * headpic : /Public/home/images/default.png
+             * username : 婆婆最新
+             * id : 150600
              */
 
+            private String headpic;
             private String username;
             private String id;
 
@@ -117,6 +119,14 @@ public class RankIndexBean {
                 }.getType();
 
                 return new Gson().fromJson(str, listType);
+            }
+
+            public String getHeadpic() {
+                return headpic;
+            }
+
+            public void setHeadpic(String headpic) {
+                this.headpic = headpic;
             }
 
             public String getUsername() {
@@ -138,14 +148,16 @@ public class RankIndexBean {
 
         public static class IncomeBean {
             /**
-             * username : 啦啦啦
-             * headpic :
-             * dmoney : 4000
+             * username : 测试
+             * headpic : /Public/uploads/news/2018-09-01/5b8a0196407bf.jpg
+             * num : 100
+             * rank : 1
              */
 
             private String username;
             private String headpic;
-            private String dmoney;
+            private String num;
+            private int rank;
 
             public static List<IncomeBean> arrayIncomeBeanFromData(String str) {
 
@@ -171,25 +183,35 @@ public class RankIndexBean {
                 this.headpic = headpic;
             }
 
-            public String getDmoney() {
-                return dmoney;
+            public String getNum() {
+                return num;
             }
 
-            public void setDmoney(String dmoney) {
-                this.dmoney = dmoney;
+            public void setNum(String num) {
+                this.num = num;
+            }
+
+            public int getRank() {
+                return rank;
+            }
+
+            public void setRank(int rank) {
+                this.rank = rank;
             }
         }
 
         public static class ChildBean {
             /**
-             * username : 大萨达
-             * headpic :
-             * dchild : 23
+             * username : 万水千山
+             * headpic : /Public/uploads/news/2018-09-01/5b8a047198d27.jpg
+             * num : 1232132
+             * rank : 1
              */
 
             private String username;
             private String headpic;
-            private String dchild;
+            private String num;
+            private int rank;
 
             public static List<ChildBean> arrayChildBeanFromData(String str) {
 
@@ -215,12 +237,20 @@ public class RankIndexBean {
                 this.headpic = headpic;
             }
 
-            public String getDchild() {
-                return dchild;
+            public String getNum() {
+                return num;
             }
 
-            public void setDchild(String dchild) {
-                this.dchild = dchild;
+            public void setNum(String num) {
+                this.num = num;
+            }
+
+            public int getRank() {
+                return rank;
+            }
+
+            public void setRank(int rank) {
+                this.rank = rank;
             }
         }
     }

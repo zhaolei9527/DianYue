@@ -16,10 +16,11 @@ import java.util.List;
  */
 public class SelfIndexBean {
 
+
     /**
-     * user : {"id":"5","headpic":"","openid":"0","tel":"17629345001","username":"sakura","address":"","name":"","ali_pay":"","idcard":"","password":"c56d0e9a7ccec67b4ea131655038d604","addtime":"1533714717","pid":"0","ptime":"0","level":"0","money":"0","dmoney":"0","dchild":"0","status":"0"}
+     * user : {"id":"150600","headpic":"/Public/home/images/default.png","openid":"","tel":"13838574629","username":"婆婆最新","address":"0","name":"0","ali_pay":"0","idcard":"0","password":"c56d0e9a7ccec67b4ea131655038d604","addtime":"1535079871","pid":"0","ptime":"0","level":"4","money":"0","dmoney":"5000","dchild":"52","is_pid":"0","status":"1","syusername":"大萨达","syheadpic":"/Public/uploads/news/2018-08-24/5b7fb6d810c14.jpg"}
      * status : 211
-     * list : {"zmoney":"","ljchild":"0","jchild":"0","txlist":[{"uid":"5","addtime":"1725611111","num":"10","headpic":"","username":"sakura"}]}
+     * list : {"zmoney":"0.50","ljchild":"0","jchild":"0","txlist":[{"addtime":"1535385600","num":"200","head":"/Public/uploads/news/2018-08-24/5b7fd23f95e06.png","name":"大龙哥","username":"大龙哥","headpic":"/Public/uploads/news/2018-08-24/5b7fd23f95e06.png"},{"addtime":"1535385600","num":"388","head":"/Public/uploads/news/2018-08-28/5b852acb5f5cd.jpg","name":"爆米花","username":"爆米花","headpic":"/Public/uploads/news/2018-08-28/5b852acb5f5cd.jpg"},{"addtime":"1535385600","num":"1330","head":"/Public/uploads/news/2018-08-28/5b852b02569bd.jpg","name":"爱的意义","username":"爱的意义","headpic":"/Public/uploads/news/2018-08-28/5b852b02569bd.jpg"},{"addtime":"1535385600","num":"69","head":"/Public/uploads/news/2018-08-27/5b83cb42d20a7.jpg","name":"江湖","username":"江湖","headpic":"/Public/uploads/news/2018-08-27/5b83cb42d20a7.jpg"},{"addtime":"1535385600","num":"345","head":"/Public/uploads/news/2018-08-28/5b852b5b63d0b.jpg","name":"小师妹","username":"小师妹","headpic":"/Public/uploads/news/2018-08-28/5b852b5b63d0b.jpg"},{"addtime":"1535385600","num":"350","head":"/Public/uploads/news/2018-08-27/5b83cb6c9de3d.jpg","name":"大红色","username":"大红色","headpic":"/Public/uploads/news/2018-08-27/5b83cb6c9de3d.jpg"},{"addtime":"1535385600","num":"89","head":"/Public/uploads/news/2018-08-27/5b83cbae03c60.jpg","name":"将军戟","username":"将军戟","headpic":"/Public/uploads/news/2018-08-27/5b83cbae03c60.jpg"},{"addtime":"1535385600","num":"453","head":"/Public/uploads/news/2018-08-27/5b83cbbfd2cf5.jpg","name":"风格很好","username":"风格很好","headpic":"/Public/uploads/news/2018-08-27/5b83cbbfd2cf5.jpg"},{"addtime":"1535385600","num":"3000","head":"/Public/uploads/news/2018-08-27/5b83cbd0bf83d.jpg","name":"美好明天","username":"美好明天","headpic":"/Public/uploads/news/2018-08-27/5b83cbd0bf83d.jpg"},{"addtime":"1535385600","num":"560","head":"/Public/uploads/news/2018-08-27/5b83cbed7f768.jpg","name":"回忆过去","username":"回忆过去","headpic":"/Public/uploads/news/2018-08-27/5b83cbed7f768.jpg"},{"addtime":"1535385600","num":"55","head":"/Public/uploads/news/2018-08-28/5b852c077da7f.jpg","name":"顺达物流","username":"顺达物流","headpic":"/Public/uploads/news/2018-08-28/5b852c077da7f.jpg"},{"addtime":"1535385600","num":"200","head":"/Public/uploads/news/2018-08-28/5b852c3be5e75.jpg","name":"艾薇eo","username":"艾薇eo","headpic":"/Public/uploads/news/2018-08-28/5b852c3be5e75.jpg"},{"addtime":"1535385600","num":"570","head":"/Public/uploads/news/2018-08-28/5b852c575cd5f.jpg","name":"ak47","username":"ak47","headpic":"/Public/uploads/news/2018-08-28/5b852c575cd5f.jpg"},{"addtime":"1535385600","num":"358","head":"/Public/uploads/news/2018-08-28/5b852c87e5030.jpg","name":"不言不语不解释","username":"不言不语不解释","headpic":"/Public/uploads/news/2018-08-28/5b852c87e5030.jpg"},{"addtime":"1535385600","num":"1000","head":"/Public/uploads/news/2018-08-28/5b852cacac657.jpg","name":"卜可","username":"卜可","headpic":"/Public/uploads/news/2018-08-28/5b852cacac657.jpg"},{"addtime":"1535385600","num":"36","head":"/Public/uploads/news/2018-08-28/5b852cc71d746.jpg","name":"陈哥","username":"陈哥","headpic":"/Public/uploads/news/2018-08-28/5b852cc71d746.jpg"},{"addtime":"1535385600","num":"369","head":"/Public/uploads/news/2018-08-28/5b852d4021190.jpg","name":"从头再来","username":"从头再来","headpic":"/Public/uploads/news/2018-08-28/5b852d4021190.jpg"},{"addtime":"1535385600","num":"195","head":"/Public/uploads/news/2018-08-28/5b852d5beb257.jpg","name":"大米","username":"大米","headpic":"/Public/uploads/news/2018-08-28/5b852d5beb257.jpg"},{"addtime":"1535385600","num":"1200","head":"/Public/uploads/news/2018-08-28/5b852dde47aee.jpg","name":"花开半夏621","username":"花开半夏621","headpic":"/Public/uploads/news/2018-08-28/5b852dde47aee.jpg"},{"addtime":"1535385600","num":"68","head":"/Public/uploads/news/2018-08-28/5b852dd1093df.jpg","name":"黄桃姐","username":"黄桃姐","headpic":"/Public/uploads/news/2018-08-28/5b852dd1093df.jpg"}]}
      */
 
     private UserBean user;
@@ -60,24 +61,27 @@ public class SelfIndexBean {
 
     public static class UserBean {
         /**
-         * id : 5
-         * headpic :
-         * openid : 0
-         * tel : 17629345001
-         * username : sakura
-         * address :
-         * name :
-         * ali_pay :
-         * idcard :
+         * id : 150600
+         * headpic : /Public/home/images/default.png
+         * openid :
+         * tel : 13838574629
+         * username : 婆婆最新
+         * address : 0
+         * name : 0
+         * ali_pay : 0
+         * idcard : 0
          * password : c56d0e9a7ccec67b4ea131655038d604
-         * addtime : 1533714717
+         * addtime : 1535079871
          * pid : 0
          * ptime : 0
-         * level : 0
+         * level : 4
          * money : 0
-         * dmoney : 0
-         * dchild : 0
-         * status : 0
+         * dmoney : 5000
+         * dchild : 52
+         * is_pid : 0
+         * status : 1
+         * syusername : 大萨达
+         * syheadpic : /Public/uploads/news/2018-08-24/5b7fb6d810c14.jpg
          */
 
         private String id;
@@ -97,7 +101,10 @@ public class SelfIndexBean {
         private String money;
         private String dmoney;
         private String dchild;
+        private String is_pid;
         private String status;
+        private String syusername;
+        private String syheadpic;
 
         public static List<UserBean> arrayUserBeanFromData(String str) {
 
@@ -243,6 +250,14 @@ public class SelfIndexBean {
             this.dchild = dchild;
         }
 
+        public String getIs_pid() {
+            return is_pid;
+        }
+
+        public void setIs_pid(String is_pid) {
+            this.is_pid = is_pid;
+        }
+
         public String getStatus() {
             return status;
         }
@@ -250,14 +265,30 @@ public class SelfIndexBean {
         public void setStatus(String status) {
             this.status = status;
         }
+
+        public String getSyusername() {
+            return syusername;
+        }
+
+        public void setSyusername(String syusername) {
+            this.syusername = syusername;
+        }
+
+        public String getSyheadpic() {
+            return syheadpic;
+        }
+
+        public void setSyheadpic(String syheadpic) {
+            this.syheadpic = syheadpic;
+        }
     }
 
     public static class ListBean {
         /**
-         * zmoney :
+         * zmoney : 0.50
          * ljchild : 0
          * jchild : 0
-         * txlist : [{"uid":"5","addtime":"1725611111","num":"10","headpic":"","username":"sakura"}]
+         * txlist : [{"addtime":"1535385600","num":"200","head":"/Public/uploads/news/2018-08-24/5b7fd23f95e06.png","name":"大龙哥","username":"大龙哥","headpic":"/Public/uploads/news/2018-08-24/5b7fd23f95e06.png"},{"addtime":"1535385600","num":"388","head":"/Public/uploads/news/2018-08-28/5b852acb5f5cd.jpg","name":"爆米花","username":"爆米花","headpic":"/Public/uploads/news/2018-08-28/5b852acb5f5cd.jpg"},{"addtime":"1535385600","num":"1330","head":"/Public/uploads/news/2018-08-28/5b852b02569bd.jpg","name":"爱的意义","username":"爱的意义","headpic":"/Public/uploads/news/2018-08-28/5b852b02569bd.jpg"},{"addtime":"1535385600","num":"69","head":"/Public/uploads/news/2018-08-27/5b83cb42d20a7.jpg","name":"江湖","username":"江湖","headpic":"/Public/uploads/news/2018-08-27/5b83cb42d20a7.jpg"},{"addtime":"1535385600","num":"345","head":"/Public/uploads/news/2018-08-28/5b852b5b63d0b.jpg","name":"小师妹","username":"小师妹","headpic":"/Public/uploads/news/2018-08-28/5b852b5b63d0b.jpg"},{"addtime":"1535385600","num":"350","head":"/Public/uploads/news/2018-08-27/5b83cb6c9de3d.jpg","name":"大红色","username":"大红色","headpic":"/Public/uploads/news/2018-08-27/5b83cb6c9de3d.jpg"},{"addtime":"1535385600","num":"89","head":"/Public/uploads/news/2018-08-27/5b83cbae03c60.jpg","name":"将军戟","username":"将军戟","headpic":"/Public/uploads/news/2018-08-27/5b83cbae03c60.jpg"},{"addtime":"1535385600","num":"453","head":"/Public/uploads/news/2018-08-27/5b83cbbfd2cf5.jpg","name":"风格很好","username":"风格很好","headpic":"/Public/uploads/news/2018-08-27/5b83cbbfd2cf5.jpg"},{"addtime":"1535385600","num":"3000","head":"/Public/uploads/news/2018-08-27/5b83cbd0bf83d.jpg","name":"美好明天","username":"美好明天","headpic":"/Public/uploads/news/2018-08-27/5b83cbd0bf83d.jpg"},{"addtime":"1535385600","num":"560","head":"/Public/uploads/news/2018-08-27/5b83cbed7f768.jpg","name":"回忆过去","username":"回忆过去","headpic":"/Public/uploads/news/2018-08-27/5b83cbed7f768.jpg"},{"addtime":"1535385600","num":"55","head":"/Public/uploads/news/2018-08-28/5b852c077da7f.jpg","name":"顺达物流","username":"顺达物流","headpic":"/Public/uploads/news/2018-08-28/5b852c077da7f.jpg"},{"addtime":"1535385600","num":"200","head":"/Public/uploads/news/2018-08-28/5b852c3be5e75.jpg","name":"艾薇eo","username":"艾薇eo","headpic":"/Public/uploads/news/2018-08-28/5b852c3be5e75.jpg"},{"addtime":"1535385600","num":"570","head":"/Public/uploads/news/2018-08-28/5b852c575cd5f.jpg","name":"ak47","username":"ak47","headpic":"/Public/uploads/news/2018-08-28/5b852c575cd5f.jpg"},{"addtime":"1535385600","num":"358","head":"/Public/uploads/news/2018-08-28/5b852c87e5030.jpg","name":"不言不语不解释","username":"不言不语不解释","headpic":"/Public/uploads/news/2018-08-28/5b852c87e5030.jpg"},{"addtime":"1535385600","num":"1000","head":"/Public/uploads/news/2018-08-28/5b852cacac657.jpg","name":"卜可","username":"卜可","headpic":"/Public/uploads/news/2018-08-28/5b852cacac657.jpg"},{"addtime":"1535385600","num":"36","head":"/Public/uploads/news/2018-08-28/5b852cc71d746.jpg","name":"陈哥","username":"陈哥","headpic":"/Public/uploads/news/2018-08-28/5b852cc71d746.jpg"},{"addtime":"1535385600","num":"369","head":"/Public/uploads/news/2018-08-28/5b852d4021190.jpg","name":"从头再来","username":"从头再来","headpic":"/Public/uploads/news/2018-08-28/5b852d4021190.jpg"},{"addtime":"1535385600","num":"195","head":"/Public/uploads/news/2018-08-28/5b852d5beb257.jpg","name":"大米","username":"大米","headpic":"/Public/uploads/news/2018-08-28/5b852d5beb257.jpg"},{"addtime":"1535385600","num":"1200","head":"/Public/uploads/news/2018-08-28/5b852dde47aee.jpg","name":"花开半夏621","username":"花开半夏621","headpic":"/Public/uploads/news/2018-08-28/5b852dde47aee.jpg"},{"addtime":"1535385600","num":"68","head":"/Public/uploads/news/2018-08-28/5b852dd1093df.jpg","name":"黄桃姐","username":"黄桃姐","headpic":"/Public/uploads/news/2018-08-28/5b852dd1093df.jpg"}]
          */
 
         private String zmoney;
@@ -307,18 +338,20 @@ public class SelfIndexBean {
 
         public static class TxlistBean {
             /**
-             * uid : 5
-             * addtime : 1725611111
-             * num : 10
-             * headpic :
-             * username : sakura
+             * addtime : 1535385600
+             * num : 200
+             * head : /Public/uploads/news/2018-08-24/5b7fd23f95e06.png
+             * name : 大龙哥
+             * username : 大龙哥
+             * headpic : /Public/uploads/news/2018-08-24/5b7fd23f95e06.png
              */
 
-            private String uid;
             private String addtime;
             private String num;
-            private String headpic;
+            private String head;
+            private String name;
             private String username;
+            private String headpic;
 
             public static List<TxlistBean> arrayTxlistBeanFromData(String str) {
 
@@ -326,14 +359,6 @@ public class SelfIndexBean {
                 }.getType();
 
                 return new Gson().fromJson(str, listType);
-            }
-
-            public String getUid() {
-                return uid;
-            }
-
-            public void setUid(String uid) {
-                this.uid = uid;
             }
 
             public String getAddtime() {
@@ -352,12 +377,20 @@ public class SelfIndexBean {
                 this.num = num;
             }
 
-            public String getHeadpic() {
-                return headpic;
+            public String getHead() {
+                return head;
             }
 
-            public void setHeadpic(String headpic) {
-                this.headpic = headpic;
+            public void setHead(String head) {
+                this.head = head;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
             }
 
             public String getUsername() {
@@ -366,6 +399,14 @@ public class SelfIndexBean {
 
             public void setUsername(String username) {
                 this.username = username;
+            }
+
+            public String getHeadpic() {
+                return headpic;
+            }
+
+            public void setHeadpic(String headpic) {
+                this.headpic = headpic;
             }
         }
     }

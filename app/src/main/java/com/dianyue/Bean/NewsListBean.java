@@ -16,9 +16,10 @@ import java.util.List;
  */
 public class NewsListBean {
 
+
     /**
      * status : 211
-     * list : {"lists":[{"id":"5","title":"测绘四","diynum":"0","spic":"/Public/uploads/news/2018-08-08/5b6aadb5465ce.png","money":"0.13","url":"dy.t.100help.net/dysys/share/index/id/5/uid/5"},{"id":"1","title":"测是新闻","diynum":"0","spic":"/Public/uploads/tupian/2018-08-03/5b640319a5f73.jpg","money":"0.13","url":"dy.t.100help.net/dysys/share/index/id/1/uid/5"}],"cate":[{"id":"2","title":"娱乐","sort":"19","addtime":"1533275027"},{"id":"3","title":"体育","sort":"0","addtime":"1533275035"}]}
+     * list : {"lists":[{"id":"26","title":"智博会上品科技","num":"45245","spic":"/Public/uploads/news/2018-08-29/5b8611493887a.jpg","money":"0.11","url":"dy.t.100help.net/dysys.php/share/index/id/26/uid/150600"}],"cate":[{"id":"2","title":"推荐","sort":"19","addtime":"1533275027"},{"id":"7","title":"娱乐","sort":"1","addtime":"1534902728"},{"id":"3","title":"国际","sort":"0","addtime":"1533275035"},{"id":"4","title":"健康","sort":"0","addtime":"1534902707"},{"id":"5","title":"财经","sort":"0","addtime":"1534902713"},{"id":"6","title":"生活","sort":"0","addtime":"1534902720"},{"id":"8","title":"社会","sort":"0","addtime":"1534902736"},{"id":"10","title":"历史","sort":"0","addtime":"1535444509"}]}
      */
 
     private int status;
@@ -78,17 +79,17 @@ public class NewsListBean {
 
         public static class ListsBean {
             /**
-             * id : 5
-             * title : 测绘四
-             * diynum : 0
-             * spic : /Public/uploads/news/2018-08-08/5b6aadb5465ce.png
-             * money : 0.13
-             * url : dy.t.100help.net/dysys/share/index/id/5/uid/5
+             * id : 26
+             * title : 智博会上品科技
+             * num : 45245
+             * spic : /Public/uploads/news/2018-08-29/5b8611493887a.jpg
+             * money : 0.11
+             * url : dy.t.100help.net/dysys.php/share/index/id/26/uid/150600
              */
 
             private String id;
             private String title;
-            private String diynum;
+            private String num;
             private String spic;
             private String money;
             private String url;
@@ -117,12 +118,12 @@ public class NewsListBean {
                 this.title = title;
             }
 
-            public String getDiynum() {
-                return diynum;
+            public String getNum() {
+                return num;
             }
 
-            public void setDiynum(String diynum) {
-                this.diynum = diynum;
+            public void setNum(String num) {
+                this.num = num;
             }
 
             public String getSpic() {
@@ -153,7 +154,7 @@ public class NewsListBean {
         public static class CateBean {
             /**
              * id : 2
-             * title : 娱乐
+             * title : 推荐
              * sort : 19
              * addtime : 1533275027
              */

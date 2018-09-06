@@ -60,10 +60,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/x10"
-            android:layout_marginRight="@dimen/x8"
+            android:layout_marginRight="@dimen/x3"
             android:layout_toLeftOf="@id/tv_share"
             android:textColor="@color/textred"
-            android:textSize="@dimen/x11" />
+            android:textSize="@dimen/x9" />
 
         <View
             android:layout_width="match_parent"

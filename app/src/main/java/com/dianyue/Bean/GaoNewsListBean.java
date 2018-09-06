@@ -16,9 +16,10 @@ import java.util.List;
  */
 public class GaoNewsListBean {
 
+
     /**
      * status : 211
-     * msg : [{"id":"4","title":"测试拍讯","diynum":"0","spic":"/Public/uploads/tupian/2018-08-04/5b64f69aaa91a.png","money":"12.00","url":"dy.t.100help.net/dysys.php/share/index/uid/"},{"id":"3","title":"高拥测试","diynum":"0","spic":"/Public/uploads/news/2018-08-03/5b6402835fc07.png","money":"12.00","url":"dy.t.100help.net/dysys.php/share/index/uid/"}]
+     * msg : [{"id":"49","title":"所有的高薪，背后都是一帮玩命的人","num":"22229","spic":"/Public/uploads/news/2018-08-30/5b87d6903c72e.jpg","money":"0.50","url":"dy.t.100help.net/dysys.php/share/index/id/49/uid/150600"}]
      */
 
     private int status;
@@ -50,17 +51,17 @@ public class GaoNewsListBean {
 
     public static class MsgBean {
         /**
-         * id : 4
-         * title : 测试拍讯
-         * diynum : 0
-         * spic : /Public/uploads/tupian/2018-08-04/5b64f69aaa91a.png
-         * money : 12.00
-         * url : dy.t.100help.net/dysys.php/share/index/uid/
+         * id : 49
+         * title : 所有的高薪，背后都是一帮玩命的人
+         * num : 22229
+         * spic : /Public/uploads/news/2018-08-30/5b87d6903c72e.jpg
+         * money : 0.50
+         * url : dy.t.100help.net/dysys.php/share/index/id/49/uid/150600
          */
 
         private String id;
         private String title;
-        private String diynum;
+        private String num;
         private String spic;
         private String money;
         private String url;
@@ -89,12 +90,12 @@ public class GaoNewsListBean {
             this.title = title;
         }
 
-        public String getDiynum() {
-            return diynum;
+        public String getNum() {
+            return num;
         }
 
-        public void setDiynum(String diynum) {
-            this.diynum = diynum;
+        public void setNum(String num) {
+            this.num = num;
         }
 
         public String getSpic() {

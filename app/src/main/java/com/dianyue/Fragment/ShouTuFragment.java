@@ -131,8 +131,8 @@ public class ShouTuFragment extends BaseLazyFragment {
                             tvDayShoutu.setText(childIndexBean.getList().getJchild() + "人");
                         }
 
-                        if (!TextUtils.isEmpty(childIndexBean.getList().getJmoney())) {
-                            tvDayShouru.setText(childIndexBean.getList().getJmoney() + "元");
+                        if (!TextUtils.isEmpty(childIndexBean.getList().getZrmoney())) {
+                            tvDayShouru.setText(childIndexBean.getList().getZrmoney() + "元");
                         }
 
                         if (!TextUtils.isEmpty(childIndexBean.getList().getZchild())) {
@@ -140,12 +140,11 @@ public class ShouTuFragment extends BaseLazyFragment {
 
                         }
 
-                        if (!TextUtils.isEmpty(childIndexBean.getList().getZlist())) {
-                            tvLeijiShouru.setText(childIndexBean.getList().getZlist() + "元");
+                        if (!TextUtils.isEmpty(childIndexBean.getList().getZmoney())) {
+                            tvLeijiShouru.setText(childIndexBean.getList().getZmoney() + "元");
                         }
 
                     }
-
 
                 } catch (Exception e) {
                     e.printStackTrace();

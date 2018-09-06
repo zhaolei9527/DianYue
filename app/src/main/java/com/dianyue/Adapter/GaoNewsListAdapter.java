@@ -56,7 +56,7 @@ public class GaoNewsListAdapter extends RecyclerView.Adapter<GaoNewsListAdapter.
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.tv_title.setText(datas.get(position).getTitle());
         holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getSpic());
-        holder.tv_look.setText(datas.get(position).getDiynum() + "阅读");
+        holder.tv_look.setText(datas.get(position).getNum() + "阅读");
         holder.tv_classify.setText("每阅读" + datas.get(position).getMoney() + "元");
         holder.fl_item.setOnClickListener(new View.OnClickListener() {
             @Override
