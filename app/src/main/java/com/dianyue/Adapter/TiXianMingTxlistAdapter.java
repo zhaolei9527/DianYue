@@ -49,7 +49,7 @@ public class TiXianMingTxlistAdapter extends RecyclerView.Adapter<TiXianMingTxli
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.tvMoney.setText(datas.get(position).getNum());
+        holder.tvMoney.setText(datas.get(position).getNum()+"元");
         holder.tvTitle.setText("提现收益");
         holder.tvTime.setText(datas.get(position).getAddtime());
     }

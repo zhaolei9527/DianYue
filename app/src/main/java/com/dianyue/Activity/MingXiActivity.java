@@ -156,7 +156,7 @@ public class MingXiActivity extends BaseActivity implements View.OnClickListener
                         }
 
                         if (!TextUtils.isEmpty(txIndexBean.getList().getZmoney())) {
-                            tvDayShoutu.setText("昨日收入: " + txIndexBean.getList().getZmoney() + "元");
+                            tvZuorishouyi.setText("昨日收入: " + txIndexBean.getList().getZmoney() + "元");
                         }
 
                         if (!TextUtils.isEmpty(txIndexBean.getList().getJchild())) {

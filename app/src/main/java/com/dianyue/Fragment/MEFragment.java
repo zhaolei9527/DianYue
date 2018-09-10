@@ -186,11 +186,11 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                         tvLv.setBackground(getResources().getDrawable(R.mipmap.zuanshi_m));
                     }
                     if (!"0".equals(selfIndexBean.getUser().getMoney())) {
-                        tvYue.setText(selfIndexBean.getUser().getMoney());
+                        tvYue.setText(selfIndexBean.getUser().getMoney()+"元");
                     }
-                    tvDayShoutu.setText(selfIndexBean.getList().getJchild());
-                    tvDayShouyi.setText(selfIndexBean.getList().getZmoney());
-                    tvLeijiShoutu.setText(selfIndexBean.getList().getLjchild());
+                    tvDayShoutu.setText(selfIndexBean.getList().getJchild() + "人");
+                    tvDayShouyi.setText(selfIndexBean.getList().getZmoney() + "元");
+                    tvLeijiShoutu.setText(selfIndexBean.getList().getLjchild() + "人");
                     if ("211".equals(String.valueOf(selfIndexBean.getStatus()))) {
                         LLEmpty.setVisibility(View.GONE);
                         if (rvJilu != null) {

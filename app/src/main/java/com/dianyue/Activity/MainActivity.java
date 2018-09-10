@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Acp.getInstance(this).request(new AcpOptions.Builder()
-                        .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+                        .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE
+                                , Manifest.permission.READ_PHONE_STATE
+                                , Manifest.permission.CAMERA)
                         .setDeniedMessage(getString(R.string.requstPerminssions))
                         .build(),
                 new AcpListener() {
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                             // 为了兼容低版本我们这里使用旧版的android.text.ClipboardManager，虽然提示deprecated，但不影响使用。
                             ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             // 将文本内容放到系统剪贴板里。
-                            cm.setText("支付宝发红包啦！人人可领，天天可领！长按复制此消息，打开支付宝领红包！VavJvm63sZ");
+                            cm.setText("VavJvm63sZ");
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

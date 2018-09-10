@@ -207,7 +207,6 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 

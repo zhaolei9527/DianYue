@@ -12,7 +12,6 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.dianyue.App;
 import com.dianyue.Bean.NewsDetailsBean;
 import com.dianyue.R;
 import com.dianyue.Utils.EasyToast;
@@ -72,10 +71,6 @@ public class NewsDetailsActivity extends BaseActivity {
         }
 
         IX5WebViewExtension ix5 = forumContext.getX5WebViewExtension();
-        if (null != ix5) {
-            ix5.setScrollBarFadingEnabled(false);
-        }
-
         // 开启 localStorage
         forumContext.getSettings().setDomStorageEnabled(true);
         // 设置支持javascript
@@ -90,9 +85,9 @@ public class NewsDetailsActivity extends BaseActivity {
         forumContext.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
                 return true;
             }
-
             @Override
             public void onPageFinished(WebView webView, String s) {
                 super.onPageFinished(webView, s);
@@ -116,6 +111,7 @@ public class NewsDetailsActivity extends BaseActivity {
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
             }
         });
+
 
         dialog = Utils.showLoadingDialog(context);
         if (!dialog.isShowing()) {
@@ -189,8 +185,7 @@ public class NewsDetailsActivity extends BaseActivity {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("id", id);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "news/detail", "news/detail", params, new VolleyInterface(context) {
-
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "news/xiangqing", "news/xiangqing", params, new VolleyInterface(context) {
 
             @Override
             public void onMySuccess(String result) {
@@ -221,12 +216,9 @@ public class NewsDetailsActivity extends BaseActivity {
         });
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        App.getQueues().cancelAll("news/detail");
-        System.gc();
     }
 
     @Override

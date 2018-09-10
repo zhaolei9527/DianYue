@@ -19,6 +19,8 @@ public class TxIndexBean {
     /**
      * status : 211
      * list : {"zmoney":0,"ljmoney":35,"money":"0","jchild":"0","cmoney":0}
+     *
+     *
      */
 
     private String status;

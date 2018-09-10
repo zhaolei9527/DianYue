@@ -70,7 +70,7 @@ public class PaiHangShouTuListAdapter extends RecyclerView.Adapter<PaiHangShouTu
 
         holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getHeadpic());
         holder.tvUsername.setText(datas.get(position).getUsername());
-        holder.tvTime.setText(datas.get(position).getNum());
+        holder.tvTime.setText(datas.get(position).getNum()+"人");
 
     }
 
