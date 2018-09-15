@@ -128,7 +128,6 @@ public class TiXianActivity extends BaseActivity implements View.OnClickListener
                     result = null;
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -136,7 +135,6 @@ public class TiXianActivity extends BaseActivity implements View.OnClickListener
             public void onMyError(VolleyError error) {
                 dialog.dismiss();
                 error.printStackTrace();
-                Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }

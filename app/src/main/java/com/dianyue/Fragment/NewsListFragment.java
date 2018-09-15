@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.dianyue.Adapter.NewsListAdapter;
@@ -101,14 +100,12 @@ public class NewsListFragment extends BaseLazyFragment {
                 } catch (Exception e) {
                     e.printStackTrace();
                     refresh.setRefreshing(false);
-                    Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onMyError(VolleyError error) {
                 error.printStackTrace();
-                Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }

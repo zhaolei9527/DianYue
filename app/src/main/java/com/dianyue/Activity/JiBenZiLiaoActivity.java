@@ -195,14 +195,12 @@ public class JiBenZiLiaoActivity extends BaseActivity implements View.OnClickLis
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    EasyToast.showShort(context, getString(R.string.Abnormalserver));
                 }
             }
 
             @Override
             public void onMyError(VolleyError error) {
                 dialogResult.dismiss();
-                EasyToast.showShort(context, getString(R.string.Abnormalserver));
                 error.printStackTrace();
             }
         });

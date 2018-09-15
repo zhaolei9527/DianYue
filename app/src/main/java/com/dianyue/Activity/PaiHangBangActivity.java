@@ -175,7 +175,6 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
                     decode = null;
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -183,7 +182,6 @@ public class PaiHangBangActivity extends BaseActivity implements View.OnClickLis
             public void onMyError(VolleyError error) {
                 dialog.dismiss();
                 error.printStackTrace();
-                Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
 

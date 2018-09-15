@@ -124,10 +124,7 @@ public class HuiYuanShengjiActivity extends BaseActivity implements View.OnClick
                     break;
             }
         }
-
-        ;
     };
-
 
     @Override
     protected int setthislayout() {
@@ -269,14 +266,12 @@ public class HuiYuanShengjiActivity extends BaseActivity implements View.OnClick
                     decode = null;
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onMyError(VolleyError error) {
                 error.printStackTrace();
-                Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -316,7 +311,6 @@ public class HuiYuanShengjiActivity extends BaseActivity implements View.OnClick
                     msg = null;
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -324,7 +318,6 @@ public class HuiYuanShengjiActivity extends BaseActivity implements View.OnClick
             public void onMyError(VolleyError error) {
                 dialog.dismiss();
                 error.printStackTrace();
-                Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -359,7 +352,6 @@ public class HuiYuanShengjiActivity extends BaseActivity implements View.OnClick
                     result = null;
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -367,7 +359,6 @@ public class HuiYuanShengjiActivity extends BaseActivity implements View.OnClick
             public void onMyError(VolleyError error) {
                 dialog.dismiss();
                 error.printStackTrace();
-                Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }

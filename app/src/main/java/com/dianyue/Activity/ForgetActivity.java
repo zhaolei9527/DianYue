@@ -177,14 +177,12 @@ public class ForgetActivity extends BaseActivity implements View.OnClickListener
                 } catch (Exception e) {
                     e.printStackTrace();
                     time = 0;
-                    Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onMyError(VolleyError error) {
                 error.printStackTrace();
-                Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -260,7 +258,6 @@ public class ForgetActivity extends BaseActivity implements View.OnClickListener
                     codeBean = null;
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -268,7 +265,6 @@ public class ForgetActivity extends BaseActivity implements View.OnClickListener
             public void onMyError(VolleyError error) {
                 error.printStackTrace();
                 time = 0;
-                Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }

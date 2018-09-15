@@ -186,7 +186,7 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                         tvLv.setBackground(getResources().getDrawable(R.mipmap.zuanshi_m));
                     }
                     if (!"0".equals(selfIndexBean.getUser().getMoney())) {
-                        tvYue.setText(selfIndexBean.getUser().getMoney()+"元");
+                        tvYue.setText(selfIndexBean.getUser().getMoney() + "元");
                     }
                     tvDayShoutu.setText(selfIndexBean.getList().getJchild() + "人");
                     tvDayShouyi.setText(selfIndexBean.getList().getZmoney() + "元");
@@ -222,14 +222,12 @@ public class MEFragment extends BaseLazyFragment implements View.OnClickListener
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onMyError(VolleyError error) {
                 error.printStackTrace();
-                Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }

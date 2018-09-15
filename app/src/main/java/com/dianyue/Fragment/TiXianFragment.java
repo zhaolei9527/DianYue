@@ -213,7 +213,6 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
             @Override
             public void onMyError(VolleyError error) {
                 error.printStackTrace();
-                Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -340,7 +339,6 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                     decode = null;
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -348,7 +346,6 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
             public void onMyError(VolleyError error) {
                 dialog.dismiss();
                 error.printStackTrace();
-                Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -409,14 +406,12 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                     dialog.dismiss();
 
                     e.printStackTrace();
-                    Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onMyError(VolleyError error) {
                 error.printStackTrace();
-                Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -477,14 +472,12 @@ public class TiXianFragment extends BaseLazyFragment implements View.OnClickList
                     dialog.dismiss();
 
                     e.printStackTrace();
-                    Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onMyError(VolleyError error) {
                 error.printStackTrace();
-                Toast.makeText(context, context.getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }

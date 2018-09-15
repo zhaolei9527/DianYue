@@ -189,7 +189,6 @@ public class QuickLoginActivity extends BaseActivity implements View.OnClickList
                     loginBean = null;
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -197,7 +196,6 @@ public class QuickLoginActivity extends BaseActivity implements View.OnClickList
             public void onMyError(VolleyError error) {
                 error.printStackTrace();
                 time = 0;
-                Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -268,14 +266,12 @@ public class QuickLoginActivity extends BaseActivity implements View.OnClickList
                 } catch (Exception e) {
                     e.printStackTrace();
                     time = 0;
-                    Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onMyError(VolleyError error) {
                 error.printStackTrace();
-                Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
             }
         });
     }
