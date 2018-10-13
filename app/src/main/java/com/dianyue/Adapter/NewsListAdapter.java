@@ -15,6 +15,8 @@ import com.dianyue.R;
 import com.dianyue.Utils.EasyToast;
 import com.dianyue.Utils.SpUtil;
 import com.dianyue.Utils.UrlUtils;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
@@ -55,7 +57,13 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.tv_title.setText(datas.get(position).getTitle());
-        holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getSpic());
+
+        DraweeController draweeController =
+                Fresco.newDraweeControllerBuilder()
+                        .setUri(UrlUtils.URL + datas.get(position).getSpic())
+                        .setAutoPlayAnimations(true) // 设置加载图片完成后是否直接进行播放
+                        .build();
+        holder.SimpleDraweeView.setController(draweeController);
         holder.tv_look.setText(datas.get(position).getNum() + "阅读");
         holder.tv_classify.setText("每阅读" + datas.get(position).getMoney() + "元");
         holder.fl_item.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +82,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
                 if ("2".equals(SpUtil.get(mContext, "level", "")) || "3".equals(SpUtil.get(mContext, "level", "")) || "4".equals(SpUtil.get(mContext, "level", ""))) {
                     showShare(position);
                 } else {
-                    EasyToast.showShort(mContext, "资格不足，请先升级~");
+                    EasyToast.showShort(mContext, "您的权限不足~");
                 }
             }
         });

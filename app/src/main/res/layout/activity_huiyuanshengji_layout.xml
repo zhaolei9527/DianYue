@@ -152,7 +152,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/y180"
+            android:layout_height="@dimen/y160"
             android:layout_gravity="bottom"
             android:background="@color/bgfff"
             android:orientation="vertical">
@@ -186,6 +186,7 @@
                 android:background="@color/bgea"></View>
 
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/ll_checkali"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y30"
@@ -220,7 +221,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/ll_checkwechat"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y30"

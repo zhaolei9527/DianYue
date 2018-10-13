@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.dianyue.Bean.RankIndexBean;
 import com.dianyue.R;
 import com.dianyue.Utils.UrlUtils;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +74,15 @@ public class PaiHangListAdapter extends RecyclerView.Adapter<PaiHangListAdapter.
 
             Log.e("PaiHangListAdapter", datas.get(position).toString());
 
-            holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getHeadpic());
+
+            DraweeController draweeController =
+                    Fresco.newDraweeControllerBuilder()
+                            .setUri(UrlUtils.URL + datas.get(position).getHeadpic())
+                            .setAutoPlayAnimations(true) // 设置加载图片完成后是否直接进行播放
+                            .build();
+            holder.SimpleDraweeView.setController(draweeController);
+
+
             holder.tvUsername.setText(datas.get(position).getUsername());
             holder.tvTime.setText(datas.get(position).getNum() + "元");
         } catch (Exception e) {

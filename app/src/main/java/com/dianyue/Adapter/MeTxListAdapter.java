@@ -12,6 +12,8 @@ import com.dianyue.Bean.SelfIndexBean;
 import com.dianyue.R;
 import com.dianyue.Utils.DateUtils;
 import com.dianyue.Utils.UrlUtils;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +54,12 @@ public class MeTxListAdapter extends RecyclerView.Adapter<MeTxListAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getHeadpic());
+        DraweeController draweeController =
+                Fresco.newDraweeControllerBuilder()
+                        .setUri(UrlUtils.URL + datas.get(position).getHeadpic())
+                        .setAutoPlayAnimations(true) // 设置加载图片完成后是否直接进行播放
+                        .build();
+        holder.SimpleDraweeView.setController(draweeController);
 
         holder.tvMoney.setText("提现" + datas.get(position).getNum() + "元");
 

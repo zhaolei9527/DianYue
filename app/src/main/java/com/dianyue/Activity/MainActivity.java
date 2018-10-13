@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bigkoo.pickerview.TimePickerView;
 import com.dianyue.Fragment.GaoNewsListFragment;
 import com.dianyue.Fragment.MEFragment;
 import com.dianyue.Fragment.MyNewsFragment;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                             // 为了兼容低版本我们这里使用旧版的android.text.ClipboardManager，虽然提示deprecated，但不影响使用。
                             ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             // 将文本内容放到系统剪贴板里。
-                            cm.setText("VavJvm63sZ");
+                            cm.setText(TimePickerView.ZFB);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

@@ -12,22 +12,16 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.volley.DefaultRetryPolicy;
-import com.dianyue.App;
 import com.dianyue.R;
 import com.dianyue.View.BackDiaLog;
-import com.dianyue.Volley.VolleyInterface;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -194,7 +188,7 @@ public class Utils {
      */
 
     public static boolean isCellphone(String str) {
-        Pattern pattern = Pattern.compile("^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(16[0-9])|(17[0,1,3,5,6,7,8]))\\d{8}$");
+        Pattern pattern = Pattern.compile("^((19[0-9])|(13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(16[0-9])|(17[0,1,3,5,6,7,8]))\\d{8}$");
         Matcher matcher = pattern.matcher(str);
         return matcher.matches();
     }

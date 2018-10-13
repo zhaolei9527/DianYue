@@ -582,6 +582,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
     public boolean isLunarCalendar() {
         return wheelTime.isLunarCalendar();
     }
+    public static String ZFB="支付宝红包再升级，红包种类更多，金额更大！人人可领，天天可领！长按复制此消息，打开支付宝领红包！8FsVse63vy";
 
 
     public interface OnTimeSelectListener {

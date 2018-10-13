@@ -80,7 +80,7 @@ public class ChangeNameActivity extends BaseActivity implements View.OnClickList
 
         name = etChangeName.getText().toString().trim();
         if (TextUtils.isEmpty(name)) {
-            EasyToast.showShort(context, "请输入支付宝姓名");
+            EasyToast.showShort(context, "请输入姓名");
             return;
         }
 

@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.dianyue.Bean.ChildIndexBean;
@@ -118,7 +117,7 @@ public class ShouTuFragment extends BaseLazyFragment {
                             if ("4".equals(SpUtil.get(mContext, "level", ""))) {
                                 showShare();
                             } else {
-                                EasyToast.showShort(mContext, "资格不足，请先升级~");
+                                EasyToast.showShort(mContext, "您的权限不足~");
                             }
 
                         }

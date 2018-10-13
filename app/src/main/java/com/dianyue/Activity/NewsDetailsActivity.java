@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.dianyue.Bean.NewsDetailsBean;
@@ -137,13 +136,13 @@ public class NewsDetailsActivity extends BaseActivity {
                     if ("2".equals(SpUtil.get(context, "level", "")) || "3".equals(SpUtil.get(context, "level", "")) || "4".equals(SpUtil.get(context, "level", ""))) {
                         showShare();
                     } else {
-                        EasyToast.showShort(context, "资格不足，请先升级~");
+                        EasyToast.showShort(context, "您的权限不足~");
                     }
                 } else {
                     if ("3".equals(SpUtil.get(context, "level", "")) || "4".equals(SpUtil.get(context, "level", ""))) {
                         showShare();
                     } else {
-                        EasyToast.showShort(context, "资格不足，请先升级~");
+                        EasyToast.showShort(context, "您的权限不足~");
                     }
                 }
             }
