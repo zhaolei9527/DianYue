@@ -20,17 +20,17 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.3"
     defaultConfig {
-        applicationId "com.dianyue"
+        applicationId "com.jiankan"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 26
-        versionName "1.26"
+        versionCode 31
+        versionName "1.31"
         multiDexEnabled true
         useLibrary 'org.apache.http.legacy'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             //设置支持的SO库架构
-            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'//,'x86', 'x86_64'
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a','x86', 'x86_64'
         }
     }
     buildTypes {

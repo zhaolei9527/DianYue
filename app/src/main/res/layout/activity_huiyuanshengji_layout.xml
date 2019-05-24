@@ -152,7 +152,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/y160"
+            android:layout_height="@dimen/y150"
             android:layout_gravity="bottom"
             android:background="@color/bgfff"
             android:orientation="vertical">

@@ -2,6 +2,7 @@ package com.dianyue.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +67,6 @@ public class MeTxListAdapter extends RecyclerView.Adapter<MeTxListAdapter.ViewHo
         holder.tvTime.setText(DateUtils.getDay(Long.parseLong(datas.get(position).getAddtime()) * 1000));
 
         holder.tvUsername.setText(datas.get(position).getUsername());
-
     }
 
     @Override
