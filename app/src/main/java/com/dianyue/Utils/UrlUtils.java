@@ -8,7 +8,6 @@ package com.dianyue.Utils;
  * 功能描述：UrlUtils 接口连接url地址存放
  */
 public class UrlUtils {
-
     /**
      * url连接头
      */
